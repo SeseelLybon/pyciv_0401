@@ -1,4 +1,4 @@
-import sys, pygame
+import pygame
 import time
 import math
 import pygame.freetype
@@ -14,13 +14,17 @@ pos = [300, 300]
 screen = pygame.display.set_mode(size)
 
 
+GAME_FONT = pygame.freetype.SysFont("Arial",24)
+text_surface1, rect = GAME_FONT.render("Hello World!", (255, 255, 255))
+text_surface2, rect = GAME_FONT.render("Hello World!", (255, 255, 255))
+text_surface3, rect = GAME_FONT.render("Hello World!", (255, 255, 255))
+
+
 black = 0, 0, 0
 time_frame = 30
 
 time_next = 0
 
-GAME_FONT  = pygame.freetype.SysFont("Arial",24)
-text_surface, rect = GAME_FONT.render("Hello World!", (255, 255, 255))
 
 running = True
 
@@ -47,7 +51,9 @@ while running:
     #Do things here
 
     screen.fill(black)
-    screen.blit(text_surface, (100, 100))
+    screen.blit(text_surface1, (100, 100))
+    screen.blit(text_surface2, (100, 200))
+    screen.blit(text_surface3, (100, 300))
     pygame.display.flip()
 
     time_dif = time_next - time.time()
