@@ -1,12 +1,16 @@
-import sys, pygame
-import time
-import math
 
-from generator import generate_text_surface
+import pygame
+pygame.init()
+
+
+import Generators
+import time
+
+import button
+import scene
 
 print("Starting PyCiv 0401")
 
-pygame.init()
 
 size = width, height = 900, 600
 
@@ -14,30 +18,40 @@ pos = [300, 300]
 
 screen = pygame.display.set_mode(size)
 
+mousex, mousey = 0,0
 
 black = 0, 0, 0
-time_frame = 30
 
+
+time_frame = 30
 time_next = 0
 
-text_surface = []
+scenes = dict()
+scenes["Buildings"] = scene.Scene("Buildings List", (0, 300))
+scenes["Resources"] = scene.Scene("Resources List", (0, 300))
+
+scene_active = "Buildings"
+
+buttons = list()
+
+buttons.append(button.Button("Buildings", ((0, 0), (size[0]//2, 100)), 10, 10))
+buttons.append(button.Button("Resources", ((size[0]//2, 0), (size[0]//2, 100)), 10, 10))
 
 
-text_surface[0] = generate_text_surface("")
-text_surface[1] = generate_text_surface("")
-text_surface[2] = generate_text_surface("")
-text_surface[3] = generate_text_surface("")
-text_surface[4] = generate_text_surface("")
-text_surface[5] = generate_text_surface("")
-text_surface[6] = generate_text_surface("")
-text_surface[7] = generate_text_surface("")
+scenes["Buildings"].add_button("Headquarters")
+scenes["Buildings"].add_button("Small house")
+scenes["Buildings"].add_button("Lumber camp")
+scenes["Buildings"].add_button("Wood mill")
+scenes["Buildings"].add_button("Quarry")
+scenes["Buildings"].add_button("Stone cutters")
 
 
-
+scenes["Resources"].add_button(button.Button("People"))
+scenes["Resources"].add_button(button.Button("Stone"))
+scenes["Resources"].add_button(button.Button("Wood"))
 
 
 running = True
-
 
 
 while running:
@@ -49,25 +63,37 @@ while running:
             running = False
             break
 
-
-
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1:
-                text_surface, rect = GAME_FONT.render("1 was pressed", (255, 255, 255))
+                pass
             elif event.key == pygame.K_2:
-                text_surface, rect = GAME_FONT.render("2 was pressed", (255, 255, 255))
+                pass
             elif event.key == pygame.K_3:
-                text_surface, rect = GAME_FONT.render("3 was pressed", (255, 255, 255))
+                pass
             elif event.key == pygame.K_4:
-                text_surface, rect = GAME_FONT.render("4 was pressed", (255, 255, 255))
+                pass
+        elif event.type == pygame.MOUSEMOTION:
+            mousex, mousey = event.pos
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            if get_collision() == True:
-                text_surface, rect = GAME_FONT.render("Mouse was pressed", (255, 255, 255))
+            for thing in buttons:
+                if thing.check_collision((mousex, mousey)):
+                    if thing.text == "Buildings":
+                        print("Activating scene", thing.text)
+                        scene_active = "Buildings"
+                    elif thing.text == "Resources":
+                        print("Activating scene", thing.text)
+                        scene_active = "Resources"
 
-    #Do things here
+    # Do things here
 
     screen.fill(black)
-    screen.blit(text_surface, (100, 100))
+
+    for thing in buttons:
+        screen.blits(thing.blit())
+
+    for thing in scenes[scene_active]:
+        screen.blits(thing.blit())
+
     pygame.display.flip()
 
     time_dif = time_next - time.time()
