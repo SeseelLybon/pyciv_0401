@@ -4,14 +4,14 @@ import pygame
 import generators
 
 
-class Button:
+class List_element:
 
     text = ""
     white = (0, 0, 200)
     black = (0, 0, 0)
 
-    def __init__(self, text, rect, outline_top=0, outline_sides=0, font_size=24):
-        pos, size = rect
+    def __init__(self, text, outline_top=10, outline_sides=10, font_size=24):
+        pos, size = (0, 0), (300, 40)
 
         self.text = text
 
@@ -40,10 +40,11 @@ class Button:
         else:
             return False
 
-    def blit(self, offset = (0,0)):
-        return (self.rect_color, self.rect.move(offset[0], offset[1])), \
-               (self.rect_inner_color, self.rect_inner.move(offset[0], offset[1])),\
+    def blit(self, offset):
+        return [ (self.rect_color, self.rect.move(offset[0], offset[1])),
+               (self.rect_inner_color, self.rect_inner.move(offset[0], offset[1])),
                (self.text_surface, self.rect_text.move(offset[0], offset[1]))
+                ]
 
 
     def change_text(self, text):

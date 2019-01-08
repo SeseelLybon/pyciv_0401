@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 
-import Generators
+import generators
 import time
 
 import button
@@ -12,13 +12,13 @@ import scene
 print("Starting PyCiv 0401")
 
 
-size = width, height = 900, 600
+size = width, height = 600, 600
 
 pos = [300, 300]
 
 screen = pygame.display.set_mode(size)
 
-mousex, mousey = 0,0
+mousex, mousey = 0, 0
 
 black = 0, 0, 0
 
@@ -27,28 +27,28 @@ time_frame = 30
 time_next = 0
 
 scenes = dict()
-scenes["Buildings"] = scene.Scene("Buildings List", (0, 300))
-scenes["Resources"] = scene.Scene("Resources List", (0, 300))
+scenes["Buildings"] = scene.Scene("Buildings List", (0, 300), (300, 0))
+scenes["Resources"] = scene.Scene("Resources List", (0, 300), (300, 0))
 
 scene_active = "Buildings"
 
 buttons = list()
 
-buttons.append(button.Button("Buildings", ((0, 0), (size[0]//2, 100)), 10, 10))
-buttons.append(button.Button("Resources", ((size[0]//2, 0), (size[0]//2, 100)), 10, 10))
+buttons.append(button.Button("Buildings", ((0, 0), (150, 100)), 10, 10))
+buttons.append(button.Button("Resources", ((150, 0), (150, 100)), 10, 10))
 
 
-scenes["Buildings"].add_button("Headquarters")
-scenes["Buildings"].add_button("Small house")
-scenes["Buildings"].add_button("Lumber camp")
-scenes["Buildings"].add_button("Wood mill")
-scenes["Buildings"].add_button("Quarry")
-scenes["Buildings"].add_button("Stone cutters")
+scenes["Buildings"].add_element("Headquarters")
+scenes["Buildings"].add_element("Small house")
+scenes["Buildings"].add_element("Lumber camp")
+scenes["Buildings"].add_element("Wood mill")
+scenes["Buildings"].add_element("Quarry")
+scenes["Buildings"].add_element("Stone cutters")
 
 
-scenes["Resources"].add_button(button.Button("People"))
-scenes["Resources"].add_button(button.Button("Stone"))
-scenes["Resources"].add_button(button.Button("Wood"))
+scenes["Resources"].add_element("People")
+scenes["Resources"].add_element("Stone")
+scenes["Resources"].add_element("Wood")
 
 
 running = True
@@ -91,8 +91,8 @@ while running:
     for thing in buttons:
         screen.blits(thing.blit())
 
-    for thing in scenes[scene_active]:
-        screen.blits(thing.blit())
+    for thing in scenes[scene_active].blit():
+        screen.blits(thing)
 
     pygame.display.flip()
 
