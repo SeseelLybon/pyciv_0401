@@ -9,9 +9,12 @@ class List_element:
     text = ""
     white = (0, 0, 200)
     black = (0, 0, 0)
+    container = []
+    isVisible = True
 
-    def __init__(self, text, outline_top=10, outline_sides=10, font_size=24):
-        pos, size = (0, 0), (300, 40)
+    def __init__(self, text, pos, outline_top=10, outline_sides=10, font_size=24):
+        self.container = []
+        pos, size = pos, (300, 40)
 
         self.text = text
 
@@ -34,22 +37,21 @@ class List_element:
         self.rect_text = pygame.Rect(rect_text_pos, rect_text_size)
         self.text_surface = generators.generate_text_surface(text)
 
-    def check_collision(self, pos):
-        if self.rect.collidepoint(pos):
+    def check_collision(self, pos, offset=(0, 0)):
+        if self.rect.collidepoint((pos[0]+offset[0], pos[1]+offset[1])):
             return True
         else:
             return False
 
     def blit(self, offset):
-        return [ (self.rect_color, self.rect.move(offset[0], offset[1])),
-               (self.rect_inner_color, self.rect_inner.move(offset[0], offset[1])),
-               (self.text_surface, self.rect_text.move(offset[0], offset[1]))
+        return [(self.rect_color, self.rect.move(offset[0], offset[1])),
+                (self.rect_inner_color, self.rect_inner.move(offset[0], offset[1])),
+                (self.text_surface, self.rect_text.move(offset[0], offset[1]))
                 ]
-
 
     def change_text(self, text):
         self.text = text
         self.text_surface = generators.generate_text_surface(self.text)
 
     def do(self, args=None):
-        pass
+        print("Did click on", self.text)

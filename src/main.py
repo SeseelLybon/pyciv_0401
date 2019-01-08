@@ -23,14 +23,13 @@ mousex, mousey = 0, 0
 black = 0, 0, 0
 
 
-time_frame = 30
+time_frame = 5
 time_next = 0
 
-scenes = dict()
-scenes["Buildings"] = scene.Scene("Buildings List", (0, 300), (300, 0))
-scenes["Resources"] = scene.Scene("Resources List", (0, 300), (300, 0))
+scenes = {"Buildings": scene.Scene("Buildings List", (0, 110), (100, 0)),
+          "Resources": scene.Scene("Resources List", (0, 110), (100, 0))}
 
-scene_active = "Buildings"
+scene_active = "Resources"
 
 buttons = list()
 
@@ -45,17 +44,22 @@ scenes["Buildings"].add_element("Wood mill")
 scenes["Buildings"].add_element("Quarry")
 scenes["Buildings"].add_element("Stone cutters")
 
-
 scenes["Resources"].add_element("People")
 scenes["Resources"].add_element("Stone")
 scenes["Resources"].add_element("Wood")
 
+for i in scenes["Buildings"].get_elements():
+    print(i.text)
+
+for i in scenes["Resources"].get_elements():
+    print(i.text)
 
 running = True
 
 
 while running:
     time_next = time.time() + 1 / time_frame
+
 
     for event in pygame.event.get():
 
@@ -84,18 +88,21 @@ while running:
                         print("Activating scene", thing.text)
                         scene_active = "Resources"
 
+            for thing in scenes[scene_active].get_elements():
+                if thing.check_collision((mousex, mousey-scenes[scene_active].position[1])):
+                    thing.do();
+
     # Do things here
 
-    screen.fill(black)
+    screen.fill((0, 0, 0))
 
     for thing in buttons:
         screen.blits(thing.blit())
 
-    for thing in scenes[scene_active].blit():
+    for thing in scenes.get(scene_active).blit():
         screen.blits(thing)
 
     pygame.display.flip()
-
     time_dif = time_next - time.time()
     if time_dif > 0:
         time.sleep(time_dif)

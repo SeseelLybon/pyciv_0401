@@ -3,7 +3,7 @@ import list_element
 
 class Scene:
 
-    elements = list()
+    container = []
 
     name = ""
     position = None
@@ -15,17 +15,17 @@ class Scene:
         self.size = size
 
     def get_elements(self):
-        return self.elements
+        return self.container
 
     def add_element(self, text):
-        self.elements.append(list_element.List_element(
-            text
+        self.container.append(list_element.List_element(
+            text, (0, 50*len(self.container))
         ))
+
 
     def blit(self):
         temp = list()
-        offset = 0
-        for i in self.elements:
-            temp.append(i.blit((self.position[0],self.position[1]+offset)))
-            offset += 50
+        for element in self.container:
+            if element.isVisible:
+                temp.append(element.blit((self.position[0],self.position[1])))
         return temp
