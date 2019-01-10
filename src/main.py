@@ -33,8 +33,8 @@ scene_active = "Resources"
 
 buttons = list()
 
-buttons.append(button.Button("Buildings", ((0, 0), (150, 100)), 10, 10))
-buttons.append(button.Button("Resources", ((150, 0), (150, 100)), 10, 10))
+buttons.append(button.Button("Buildings", ((0, 0), (300, 100)), 10, 10))
+buttons.append(button.Button("Resources", ((300, 0), (300, 100)), 10, 10))
 
 
 scenes["Buildings"].add_element("Headquarters")
