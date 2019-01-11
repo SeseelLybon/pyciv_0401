@@ -9,6 +9,9 @@ import time
 import button
 import scene
 
+from buildings import buildings_dict
+from resources import resources_dict
+
 print("Starting PyCiv 0401")
 
 
@@ -23,7 +26,7 @@ mousex, mousey = 0, 0
 black = 0, 0, 0
 
 
-time_frame = 5
+time_frame = 30  #
 time_next = 0
 
 scenes = {"Buildings": scene.Scene("Buildings List", (0, 110), (100, 0)),
@@ -60,7 +63,6 @@ running = True
 while running:
     time_next = time.time() + 1 / time_frame
 
-
     for event in pygame.event.get():
 
         if event.type == pygame.QUIT:
@@ -89,7 +91,7 @@ while running:
                         scene_active = "Resources"
 
             for thing in scenes[scene_active].get_elements():
-                if thing.check_collision((mousex, mousey-scenes[scene_active].position[1])):
+                if thing.check_collision((mousex, mousey)):
                     thing.do();
 
     # Do things here

@@ -7,18 +7,38 @@ import generators
 class List_element:
 
     text = ""
-    white = (0, 0, 200)
+    white = (0, 0, 255)
     black = (0, 0, 0)
     isVisible = True
 
     def __init__(self, text, outline_top=3, outline_sides=10, font_size=24):
         self.container = []
         self.pos = (0, 0)
-        self.size =  (600, 40)
+        self.size = (600, 40)
 
         self.text = text
 
+        # Make white Rect
         self.rect = pygame.Rect(self.pos, self.size)
+        self.rect_color = pygame.Surface(self.size)
+        self.rect_color.fill(self.white)
+
+        # Make a black rect inside the white Rect.
+        self.rect_inner = pygame.Rect((0, 0), (0, 0))
+        self.rect_inner_color = pygame.Surface((0, 0))
+        self.rect_inner_color.fill(self.black)
+
+        # Position the text surface inside the black Rect
+
+        self.rect_text = pygame.Rect((0, 0), (0, 0))
+        self.text_surface = generators.generate_text_surface(text)
+
+    def update_position(self, offset=(0, 0), outline_top=3, outline_sides=10, font_size=24):
+        self.text = text
+
+        self.pos = offset
+
+        self.rect = pygame.Rect((self.pos[0], self.pos[1]), self.size)
         self.rect_color = pygame.Surface(self.size)
         self.rect_color.fill(self.white)
 
@@ -35,21 +55,15 @@ class List_element:
         rect_text_size = (self.size[0]-outline_sides, self.size[1]-outline_top-text_outline_middle)
 
         self.rect_text = pygame.Rect(rect_text_pos, rect_text_size)
-        self.text_surface = generators.generate_text_surface(text)
 
-    def update_position(self):
-        pass
-
-    def check_collision(self, pos, offset=(0, 0)):
-        if self.rect.collidepoint((pos[0]+offset[0], pos[1]+offset[1])):
+    def check_collision(self, pos):
+        if self.rect.collidepoint(pos):
             return True
         else:
             return False
 
     def blit(self, offset):
-        self.rect.y = offset[1]
-        self.rect_inner.y = offset[1]
-        self.rect_text.y = offset[1]
+        self.update_position(offset)
 
         return [(self.rect_color, self.rect),
                 (self.rect_inner_color, self.rect_inner),
