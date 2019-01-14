@@ -8,14 +8,18 @@ resources_dict = dict()
 
 
 class ResourceTypes(Enum):
-    wood = auto()
-    stone = auto()
-    people = auto()
-    smallhouse = auto()
-    lumbercamp = auto()
-    quarry = auto()
+    Wood = auto()
+    Stone = auto()
+    People = auto()
 
 
-resources_dict[ResourceTypes.wood] = 0
-resources_dict[ResourceTypes.stone] = 0
-resources_dict[ResourceTypes.people] = 0
+class Resource:
+    def __init__(self, typ, name, amount):
+        self.Type = typ
+        self.Name = name
+        self.Amount = amount
+
+
+resources_dict[ResourceTypes.Wood] = 0
+resources_dict[ResourceTypes.Stone] = 0
+resources_dict[ResourceTypes.People] = 0

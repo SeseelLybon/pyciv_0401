@@ -11,12 +11,14 @@ class List_element:
     black = (0, 0, 0)
     isVisible = True
 
-    def __init__(self, text, outline_top=3, outline_sides=10, font_size=24):
+    def __init__(self, objct, outline_top=3, outline_sides=10, font_size=24):
+
+        self.Contain = objct
         self.container = []
         self.pos = (0, 0)
         self.size = (600, 40)
 
-        self.text = text
+        self.text = self.Contain.name
 
         # Make white Rect
         self.rect = pygame.Rect(self.pos, self.size)
