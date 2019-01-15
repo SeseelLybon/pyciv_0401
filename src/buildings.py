@@ -14,7 +14,6 @@ class BuildingTypes(Enum):
     Lumbercamp = auto()
     Woodmill = auto()
     Quarry = auto()
-    Stonecutters = auto()
     Huntershut = auto()
 
 
@@ -187,23 +186,6 @@ buildings_dict[BuildingTypes.Quarry] = Building(BuildingTypes.Quarry,
                                                              ResourceTypes.People: 1
                                                              }
                                                 )
-
-buildings_dict[BuildingTypes.Stonecutters] = Building(BuildingTypes.Stonecutters,
-                                                      "Stone cutters",
-                                                      amount=0,
-                                                      costs={ResourceTypes.Wood: 100,
-                                                             ResourceTypes.Stone: 100,
-                                                             ResourceTypes.People: 1
-                                                             },
-                                                      consumes={ResourceTypes.Stone: 10
-                                                                },
-                                                      produces={ResourceTypes.Brick: 10
-                                                                },
-                                                      destruction={ResourceTypes.Wood: 50,
-                                                                   ResourceTypes.Stone: 50,
-                                                                   ResourceTypes.People: 1
-                                                                   }
-                                                      )
 
 buildings_dict[BuildingTypes.Huntershut] = Building(BuildingTypes.Huntershut,
                                                     "Hunter's hut",

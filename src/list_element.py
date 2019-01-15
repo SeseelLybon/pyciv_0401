@@ -8,8 +8,8 @@ from buildings import Building
 from resources import Resource
 
 
-image_button_add = pygame.image.load("..\images\Button_Add.png")
-image_button_remove = pygame.image.load("..\images\Button_Remove.png")
+image_button_add = pygame.image.load("../images/Button_Add.png")
+image_button_remove = pygame.image.load("../images/Button_Remove.png")
 
 class List_element:
 
