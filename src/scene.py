@@ -12,9 +12,9 @@ class Scene:
     def get_elements(self):
         return self.container
 
-    def add_element(self, text):
+    def add_element(self, objct):
         self.container.append(list_element.List_element(
-            text
+            objct
         ))
 
     def blit(self):

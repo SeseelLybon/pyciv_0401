@@ -54,31 +54,32 @@ class Building:
 
 buildings_dict = dict()
 
-buildings_dict[BuildingTypes.smallstorage] = Building(BuildingTypes.Smallstorage,
+buildings_dict[BuildingTypes.Smallstorage] = Building(BuildingTypes.Smallstorage,
                                                       "Small storage",
                                                       amount=1,
-                                                      stores=[(ResourceTypes.wood, 1000)])
+                                                      stores=[(ResourceTypes.Wood, 1000)])
 
-buildings_dict[BuildingTypes.smallhouse] = Building(BuildingTypes.Smallhouse,
+buildings_dict[BuildingTypes.Smallhouse] = Building(BuildingTypes.Smallhouse,
                                                     "Small house",
                                                     amount=0,
                                                     stores=[(ResourceTypes.Wood, 1000)])
 
-buildings_dict[BuildingTypes.lumbercamp] = Building(BuildingTypes.Lumbercamp,
+buildings_dict[BuildingTypes.Lumbercamp] = Building(BuildingTypes.Lumbercamp,
                                                     "Lumber camp",
                                                     amount=0,
                                                     stores=[(ResourceTypes.Wood, 1000)])
-buildings_dict[BuildingTypes.woodmill] = Building(BuildingTypes.Woodmill,
+
+buildings_dict[BuildingTypes.Woodmill] = Building(BuildingTypes.Woodmill,
                                                   "Wood mill",
                                                   amount=0,
                                                   stores=[(ResourceTypes.Wood, 1000)])
 
-buildings_dict[BuildingTypes.quarry] = Building(BuildingTypes.Quarry,
+buildings_dict[BuildingTypes.Quarry] = Building(BuildingTypes.Quarry,
                                                 "Quarry",
                                                 amount=0,
                                                 stores=[(ResourceTypes.Wood, 1000)])
 
-buildings_dict[BuildingTypes.stonecutters] = Building(BuildingTypes.Stonecutters,
+buildings_dict[BuildingTypes.Stonecutters] = Building(BuildingTypes.Stonecutters,
                                                       "Stone cutters",
                                                       amount=0,
                                                       stores=[(ResourceTypes.Wood, 1000)])

@@ -20,6 +20,6 @@ class Resource:
         self.Amount = amount
 
 
-resources_dict[ResourceTypes.Wood] = 0
-resources_dict[ResourceTypes.Stone] = 0
-resources_dict[ResourceTypes.People] = 0
+resources_dict[ResourceTypes.Wood] = Resource(ResourceTypes.Wood, "Wood", 10000)
+resources_dict[ResourceTypes.Stone] = Resource(ResourceTypes.Stone, "Stone", 10000)
+resources_dict[ResourceTypes.People] = Resource(ResourceTypes.People, "People", 10)

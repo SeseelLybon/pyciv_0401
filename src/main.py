@@ -43,16 +43,16 @@ buttons.append(button.Button("Buildings", ((0, 0), (300, 100)), 10, 10))
 buttons.append(button.Button("Resources", ((300, 0), (300, 100)), 10, 10))
 
 
-scenes["Buildings"].add_element("Smallstorage")
-scenes["Buildings"].add_element("Small house")
-scenes["Buildings"].add_element("Lumber camp")
-scenes["Buildings"].add_element("Wood mill")
-scenes["Buildings"].add_element("Quarry")
-scenes["Buildings"].add_element("Stone cutters")
+scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Smallstorage])
+scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Lumbercamp])
+scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Woodmill])
+scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Quarry])
+scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Stonecutters])
+scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Smallhouse])
 
-scenes["Resources"].add_element(resources_dict[ResourceTypes.people])
-scenes["Resources"].add_element(resources_dict[ResourceTypes.stone])
-scenes["Resources"].add_element(resources_dict[ResourceTypes.wood])
+scenes["Resources"].add_element(resources_dict[ResourceTypes.People])
+scenes["Resources"].add_element(resources_dict[ResourceTypes.Stone])
+scenes["Resources"].add_element(resources_dict[ResourceTypes.Wood])
 
 running = True
 
