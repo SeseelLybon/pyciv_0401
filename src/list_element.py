@@ -2,9 +2,11 @@
 
 import pygame
 import generators
+import math
 
 from buildings import Building
 from resources import Resource
+
 
 image_button_add = pygame.image.load("..\images\Button_Add.png")
 image_button_remove = pygame.image.load("..\images\Button_Remove.png")
@@ -66,7 +68,7 @@ class List_element:
         self.Text_surface_name = generators.generate_text_surface(self.Thing.Name)
 
         self.rect_text_amount = pygame.Rect((0, 0), (0, 0))
-        self.Text_surface_amount = generators.generate_text_surface(str(self.Thing.Amount))
+        self.Text_surface_amount = generators.generate_text_surface(str(int(self.Thing.Amount)))
 
         if self.isBuilding:
 
@@ -76,11 +78,10 @@ class List_element:
         else:
 
             self.rect_text_gain = pygame.Rect((0, 0), (0, 0))
-            self.Text_surface_gain = generators.generate_text_surface(str(self.Thing.Produced))
+            self.Text_surface_gain = generators.generate_text_surface(str(int(self.Thing.Produced)))
 
             self.rect_text_max = pygame.Rect((0, 0), (0, 0))
-            self.Text_surface_max = generators.generate_text_surface(str(self.Thing.Max))
-
+            self.Text_surface_max = generators.generate_text_surface("/"+str(int(self.Thing.Max)))
 
     def update_position(self, offset=(0, 0), outline_top=3, outline_sides=10, font_size=24):
 
@@ -122,7 +123,7 @@ class List_element:
                                      self.size[1] - outline_top - text_outline_middle)
 
             self.rect_text_amount = pygame.Rect(rect_text_amount_pos, rect_text_amount_size)
-            self.Text_surface_amount = generators.generate_text_surface(str(self.Thing.Amount))
+            self.Text_surface_amount = generators.generate_text_surface(str(int(self.Thing.Amount)))
 
             rect_button_add_pos = (self.pos[0] + outline_sides * 2 + 500,
                                    self.pos[1] + outline_top + text_outline_middle)
@@ -136,7 +137,7 @@ class List_element:
                                    self.size[1] - outline_top - text_outline_middle)
 
             self.rect_text_gain = pygame.Rect(rect_text_gain_pos, rect_text_gain_size)
-            self.Text_surface_gain = generators.generate_text_surface(str(self.Thing.Produced))
+            self.Text_surface_gain = generators.generate_text_surface(str(round(self.Thing.Produced, 4)))
 
             rect_text_amount_pos = (self.pos[0] + outline_sides * 2 + 300,
                                     self.pos[1] + outline_top + text_outline_middle)
@@ -144,7 +145,7 @@ class List_element:
                                      self.size[1] - outline_top - text_outline_middle)
 
             self.rect_text_amount = pygame.Rect(rect_text_amount_pos, rect_text_amount_size)
-            self.Text_surface_amount = generators.generate_text_surface(str(self.Thing.Amount))
+            self.Text_surface_amount = generators.generate_text_surface(str(int(self.Thing.Amount)))
 
             rect_text_max_pos = (self.pos[0] + outline_sides * 2 + 400,
                                  self.pos[1] + outline_top + text_outline_middle)
@@ -152,7 +153,7 @@ class List_element:
                                   self.size[1] - outline_top - text_outline_middle)
 
             self.rect_text_max = pygame.Rect(rect_text_max_pos, rect_text_max_size)
-            self.Text_surface_max = generators.generate_text_surface(str(self.Thing.Max))
+            self.Text_surface_max = generators.generate_text_surface(("/"+str(self.Thing.Max)))
 
     def check_collision(self, pos):
         if self.isBuilding:

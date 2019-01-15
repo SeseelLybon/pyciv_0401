@@ -11,6 +11,7 @@ import scene
 
 from buildings import buildings_dict
 from buildings import BuildingTypes
+from buildings import calc_max
 
 from resources import resources_dict
 from resources import ResourceTypes
@@ -43,19 +44,15 @@ buttons.append(button.Button("Buildings", ((0, 0), (300, 100)), 10, 10))
 buttons.append(button.Button("Resources", ((300, 0), (300, 100)), 10, 10))
 
 
-scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Smallstorage])
-scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Lumbercamp])
-scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Woodmill])
-scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Quarry])
-scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Stonecutters])
-scenes["Buildings"].add_element(buildings_dict[BuildingTypes.Smallhouse])
+for key_b, value_b in buildings_dict.items():
+    scenes["Buildings"].add_element(buildings_dict[key_b])
 
-scenes["Resources"].add_element(resources_dict[ResourceTypes.People])
-scenes["Resources"].add_element(resources_dict[ResourceTypes.Stone])
-scenes["Resources"].add_element(resources_dict[ResourceTypes.Wood])
+for key_r, value_r in resources_dict.items():
+    scenes["Resources"].add_element(resources_dict[key_r])
 
 running = True
 
+frames_passed = 1
 
 while running:
     time_next = time.time() + 1 / time_frame
@@ -91,6 +88,15 @@ while running:
                 thing.check_collision((mousex, mousey))
 
     # Do things here
+
+    frames_passed += 1
+    if frames_passed % time_frame == 0:
+        frames_passed = 0
+        calc_max()
+
+        for building in buildings_dict.values():
+            building.produce()
+            pass
 
     screen.fill((0, 0, 0))
 
