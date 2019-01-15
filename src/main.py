@@ -88,8 +88,7 @@ while running:
                         scene_active = "Resources"
 
             for thing in scenes[scene_active].get_elements():
-                if thing.check_collision((mousex, mousey)):
-                    thing.do();
+                thing.check_collision((mousex, mousey))
 
     # Do things here
 

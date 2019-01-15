@@ -6,10 +6,13 @@ import generators
 from buildings import Building
 from resources import Resource
 
+image_button_add = pygame.image.load("..\images\Button_Add.png")
+image_button_remove = pygame.image.load("..\images\Button_Remove.png")
 
 class List_element:
 
-    white = (0, 0, 255)
+
+    white = (200, 200, 200)
     black = (0, 0, 0)
     isVisible = True
     isBuilding = False  # if it is not a building, it is a resource
@@ -35,6 +38,11 @@ class List_element:
         self.Thing = objct
         if isinstance(self.Thing, Building):
             self.isBuilding = True
+            self.image_button_add = image_button_add
+            self.rect_button_add = pygame.Rect((0, 0), (0, 0))
+            self.image_button_remove = image_button_remove
+            self.rect_button_remove = pygame.Rect((0, 0), (0, 0))
+
         elif isinstance(self.Thing, Resource):
             self.isBuilding = False
 
@@ -60,6 +68,20 @@ class List_element:
         self.rect_text_amount = pygame.Rect((0, 0), (0, 0))
         self.Text_surface_amount = generators.generate_text_surface(str(self.Thing.Amount))
 
+        if self.isBuilding:
+
+            self.rect_button_add = pygame.Rect((0, 0), (0, 0))
+            self.rect_button_remove = pygame.Rect((0, 0), (0, 0))
+
+        else:
+
+            self.rect_text_gain = pygame.Rect((0, 0), (0, 0))
+            self.Text_surface_gain = generators.generate_text_surface(str(self.Thing.Produced))
+
+            self.rect_text_max = pygame.Rect((0, 0), (0, 0))
+            self.Text_surface_max = generators.generate_text_surface(str(self.Thing.Max))
+
+
     def update_position(self, offset=(0, 0), outline_top=3, outline_sides=10, font_size=24):
 
         self.pos = offset
@@ -68,8 +90,10 @@ class List_element:
         self.rect_color = pygame.Surface(self.size)
         self.rect_color.fill(self.white)
 
-        rect_inner_pos = (self.pos[0]+outline_sides, self.pos[1]+outline_top)
-        rect_inner_size = (self.size[0]-outline_sides*2, self.size[1]-outline_top*2)
+        rect_inner_pos = (self.pos[0]+outline_sides,
+                          self.pos[1]+outline_top)
+        rect_inner_size = (self.size[0]-outline_sides*2,
+                           self.size[1]-outline_top*2)
 
         self.rect_inner = pygame.Rect(rect_inner_pos, rect_inner_size)
         self.rect_inner_color = pygame.Surface(rect_inner_size)
@@ -77,31 +101,88 @@ class List_element:
 
         text_outline_middle = (rect_inner_size[1]-font_size)//2+2
 
-        rect_text_name_pos = (self.pos[0]+outline_sides*2, self.pos[1]+outline_top+text_outline_middle)
-        rect_text_name_size = (self.size[0]-outline_sides, self.size[1]-outline_top-text_outline_middle)
+        rect_text_name_pos = (self.pos[0]+outline_sides*2,
+                              self.pos[1]+outline_top+text_outline_middle)
+        rect_text_name_size = (self.size[0]-outline_sides,
+                               self.size[1]-outline_top-text_outline_middle)
 
         self.rect_text_name = pygame.Rect(rect_text_name_pos, rect_text_name_size)
 
-        rect_text_amount_pos = (self.pos[0]+outline_sides*2+300, self.pos[1]+outline_top+text_outline_middle)
-        rect_text_amount_size = (self.size[0]-outline_sides, self.size[1]-outline_top-text_outline_middle)
+        if self.isBuilding:
 
-        self.rect_text_amount = pygame.Rect(rect_text_amount_pos, rect_text_amount_size)
-        self.Text_surface_amount = generators.generate_text_surface(str(self.Thing.Amount))
+            rect_button_remove_pos = (self.pos[0] + outline_sides * 2 + 350,
+                                      self.pos[1] + outline_top + text_outline_middle)
+            rect_button_size = (20, 20)
+
+            self.rect_button_remove = pygame.Rect(rect_button_remove_pos, rect_button_size)
+
+            rect_text_amount_pos = (self.pos[0] + outline_sides * 2 + 400,
+                                    self.pos[1] + outline_top + text_outline_middle)
+            rect_text_amount_size = (self.size[0] - outline_sides,
+                                     self.size[1] - outline_top - text_outline_middle)
+
+            self.rect_text_amount = pygame.Rect(rect_text_amount_pos, rect_text_amount_size)
+            self.Text_surface_amount = generators.generate_text_surface(str(self.Thing.Amount))
+
+            rect_button_add_pos = (self.pos[0] + outline_sides * 2 + 500,
+                                   self.pos[1] + outline_top + text_outline_middle)
+
+            self.rect_button_add = pygame.Rect(rect_button_add_pos, rect_button_size)
+        else:
+
+            rect_text_gain_pos = (self.pos[0] + outline_sides * 2 + 200,
+                                  self.pos[1] + outline_top + text_outline_middle)
+            rect_text_gain_size = (self.size[0] - outline_sides,
+                                   self.size[1] - outline_top - text_outline_middle)
+
+            self.rect_text_gain = pygame.Rect(rect_text_gain_pos, rect_text_gain_size)
+            self.Text_surface_gain = generators.generate_text_surface(str(self.Thing.Produced))
+
+            rect_text_amount_pos = (self.pos[0] + outline_sides * 2 + 300,
+                                    self.pos[1] + outline_top + text_outline_middle)
+            rect_text_amount_size = (self.size[0] - outline_sides,
+                                     self.size[1] - outline_top - text_outline_middle)
+
+            self.rect_text_amount = pygame.Rect(rect_text_amount_pos, rect_text_amount_size)
+            self.Text_surface_amount = generators.generate_text_surface(str(self.Thing.Amount))
+
+            rect_text_max_pos = (self.pos[0] + outline_sides * 2 + 400,
+                                 self.pos[1] + outline_top + text_outline_middle)
+            rect_text_max_size = (self.size[0] - outline_sides,
+                                  self.size[1] - outline_top - text_outline_middle)
+
+            self.rect_text_max = pygame.Rect(rect_text_max_pos, rect_text_max_size)
+            self.Text_surface_max = generators.generate_text_surface(str(self.Thing.Max))
 
     def check_collision(self, pos):
-        if self.rect.collidepoint(pos):
-            return True
-        else:
-            return False
+        if self.isBuilding:
+            if self.rect_button_add.collidepoint(pos):
+                print("Pressed", self.Thing.Name, "Add")
+                self.Thing.add_building()
+            elif self.rect_button_remove.collidepoint(pos):
+                print("Pressed", self.Thing.Name, "Remove")
+                self.Thing.remove_building()
 
     def blit(self, offset):
         self.update_position(offset)
 
-        return [(self.rect_color, self.rect),
-                (self.rect_inner_color, self.rect_inner),
-                (self.Text_surface_name, self.rect_text_name),
-                (self.Text_surface_amount, self.rect_text_amount)
-                ]
+        if self.isBuilding:
+            return [(self.rect_color, self.rect),
+                    (self.rect_inner_color, self.rect_inner),
+                    (self.Text_surface_name, self.rect_text_name),
+                    (self.image_button_remove, self.rect_button_remove),
+                    (self.Text_surface_amount, self.rect_text_amount),
+                    (self.image_button_add, self.rect_button_add)
+                    ]
+        else:
+            return [(self.rect_color, self.rect),
+                    (self.rect_inner_color, self.rect_inner),
+                    (self.Text_surface_name, self.rect_text_name),
+                    (self.Text_surface_gain, self.rect_text_gain),
+                    (self.Text_surface_amount, self.rect_text_amount),
+                    (self.Text_surface_max, self.rect_text_max)
+                    ]
+
 
     def do(self, args=None):
         print("Did click on", self.Thing.Name, self.Thing.Amount)
