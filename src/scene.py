@@ -6,6 +6,7 @@ class Scene:
     def __init__(self, name, pos, size):
         self.name = name
         self.position = pos
+        self.top = self.position
         self.size = size
         self.container = list()
 
@@ -16,6 +17,18 @@ class Scene:
         self.container.append(list_element.List_element(
             objct
         ))
+
+    def move_scene(self, offset):
+        if offset[1] < 0:
+            if self.position[1]+offset[1] > self.top[1]:
+                self.position = (self.position[0]+offset[0], self.position[1]+offset[1])
+        elif offset[1] > 0:
+            bottom = 0
+            for element in self.container:
+                if element.isVisible:
+                    bottom += 30
+            if self.position[1]+offset[1] < bottom:
+                self.position = (self.position[0] + offset[0], self.position[1] + offset[1])
 
     def blit(self):
         temp = list()

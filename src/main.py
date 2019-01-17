@@ -75,17 +75,26 @@ while running:
         elif event.type == pygame.MOUSEMOTION:
             mousex, mousey = event.pos
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            for thing in buttons:
-                if thing.check_collision((mousex, mousey)):
-                    if thing.text == "Buildings":
-                        print("Activating scene", thing.text)
-                        scene_active = "Buildings"
-                    elif thing.text == "Resources":
-                        print("Activating scene", thing.text)
-                        scene_active = "Resources"
+            if event.button == 1:
+                for thing in buttons:
+                    if thing.check_collision((mousex, mousey)):
+                        if thing.text == "Buildings":
+                            print("Activating scene", thing.text)
+                            scene_active = "Buildings"
+                        elif thing.text == "Resources":
+                            print("Activating scene", thing.text)
+                            scene_active = "Resources"
 
-            for thing in scenes[scene_active].get_elements():
-                thing.check_collision((mousex, mousey))
+                for thing in scenes[scene_active].get_elements():
+                    thing.check_collision((mousex, mousey))
+            elif event.button == 4:
+                # move the active scene up
+                scenes.get(scene_active).move_scene((0, -20))
+                pass
+            elif event.button == 5:
+                # move the active scene down
+                scenes.get(scene_active).move_scene((0, 20))
+                pass
 
     # Do things here
 
@@ -100,11 +109,12 @@ while running:
 
     screen.fill((0, 0, 0))
 
-    for thing in buttons:
-        screen.blits(thing.blit())
 
     for thing in scenes.get(scene_active).blit():
         screen.blits(thing)
+
+    for thing in buttons:
+        screen.blits(thing.blit())
 
     pygame.display.flip()
 
