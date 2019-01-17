@@ -19,10 +19,11 @@ class BuildingTypes(Enum):
 
 
 class Building:
-    def __init__(self, typ, name, amount=0, produces=None, consumes=None, stores=None, costs=None, destruction=None):
+    def __init__(self, typ, name, amount=0, isvis=True, produces=None, consumes=None, stores=None, costs=None, destruction=None):
         self.Type = typ
         self.Name = name
         self.Amount = amount
+        self.isVisible = isvis
 
         if produces:
             self.Produces = produces

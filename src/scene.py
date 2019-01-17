@@ -25,7 +25,7 @@ class Scene:
         elif offset[1] > 0:
             bottom = 0
             for element in self.container:
-                if element.isVisible:
+                if element.Thing.isVisible:
                     bottom += 30
             if self.position[1]+offset[1] < bottom:
                 self.position = (self.position[0] + offset[0], self.position[1] + offset[1])
@@ -34,7 +34,7 @@ class Scene:
         temp = list()
         offset = [0, 0]
         for element in self.container:
-            if element.isVisible:
+            if element.Thing.isVisible:
                 temp.append(element.blit((self.position[0], self.position[1]+offset[1])))
                 offset[1] += 38
         return temp

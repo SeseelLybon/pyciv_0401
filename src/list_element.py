@@ -184,6 +184,5 @@ class List_element:
                     (self.Text_surface_max, self.rect_text_max)
                     ]
 
-
     def do(self, args=None):
         print("Did click on", self.Thing.Name, self.Thing.Amount)
