@@ -14,6 +14,7 @@ class ResourceTypes(Enum):
     Brick = auto()
     People = auto()
     Food = auto()
+    Coin = auto()
 
 
 class Resource:
@@ -32,3 +33,4 @@ resources_dict[ResourceTypes.Stone] = Resource(ResourceTypes.Stone, "Stone", 100
 resources_dict[ResourceTypes.Brick] = Resource(ResourceTypes.Brick, "Brick", 0, False)
 resources_dict[ResourceTypes.People] = Resource(ResourceTypes.People, "People", 10)
 resources_dict[ResourceTypes.Food] = Resource(ResourceTypes.Food, "Food", 1000)
+resources_dict[ResourceTypes.Coin] = Resource(ResourceTypes.Coin, "Coin", 0)

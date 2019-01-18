@@ -15,7 +15,8 @@ class BuildingTypes(Enum):
     Woodmill = auto()
     Quarry = auto()
     Huntershut = auto()
-
+    Bank = auto()
+    Smallloan = auto()
 
 
 class Building:
@@ -53,8 +54,12 @@ class Building:
     def add_building(self):
         can_build = True
         for key_r, value_r in self.Costs.items():
-            if resources_dict[key_r].Amount - value_r < 0:
-                can_build = False
+            if value_r > 0:
+                if resources_dict[key_r].Amount - value_r < 0:
+                    can_build = False
+            elif value_r < 0:
+                if resources_dict[key_r].Amount - value_r > resources_dict[key_r].Max:
+                    can_build = False
 
         if can_build:
             for key_r, value_r in self.Costs.items():
@@ -64,11 +69,22 @@ class Building:
 
     def remove_building(self):
         # if resources are all available:
+        can_remove = True
         if self.Amount > 0:
-            self.Amount -= 1
             for key_r, value_r in self.Destruction.items():
-                resources_dict[key_r].Amount += value_r
-        # add resources
+                if value_r < 0:
+                    if resources_dict[key_r].Amount - value_r < 0:
+                        can_remove = False
+                elif value_r > 0:
+                    if resources_dict[key_r].Amount - value_r > resources_dict[key_r].Max:
+                        can_remove = False
+        else:
+            can_remove = False
+
+        if can_remove:
+            for key_r, value_r in self.Destruction.items():
+                resources_dict[key_r].Amount -= value_r
+            self.Amount -= 1
 
     def produce(self):
         amount_produced = self.Amount
@@ -203,8 +219,32 @@ buildings_dict[BuildingTypes.Huntershut] = Building(BuildingTypes.Huntershut,
                                                                  }
                                                     )
 
+buildings_dict[BuildingTypes.Bank] = Building(BuildingTypes.Bank,
+                                              "Bank",
+                                              amount=0,
+                                              costs={ResourceTypes.Wood: 100,
+                                                     ResourceTypes.Stone: 100,
+                                                     ResourceTypes.People: 1
+                                                     },
+                                              stores={ResourceTypes.Coin: 500
+                                                      },
+                                              produces={
+                                                        },
+                                              destruction={ResourceTypes.Wood: 50,
+                                                           ResourceTypes.Stone: 50,
+                                                           ResourceTypes.People: 1
+                                                           }
+                                              )
 
-
-
-
-
+buildings_dict[BuildingTypes.Smallloan] = Building(BuildingTypes.Smallloan,
+                                                   "Small loan",
+                                                   amount=0,
+                                                   costs={ResourceTypes.Coin: -100
+                                                          },
+                                                   produces={
+                                                             },
+                                                   consumes={ResourceTypes.Coin: 0.1
+                                                             },
+                                                   destruction={ResourceTypes.Coin: -100
+                                                                }
+                                                   )
