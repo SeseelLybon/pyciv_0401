@@ -54,6 +54,8 @@ running = True
 
 frames_passed = 1
 
+generators.load_savefile()
+
 while running:
     time_next = time.time() + 1 / time_frame
 
@@ -109,7 +111,6 @@ while running:
             pass
 
     screen.fill((0, 0, 0))
-
 
     for thing in scenes.get(scene_active).blit():
         screen.blits(thing)

@@ -8,13 +8,13 @@ resources_dict = dict()
 
 
 class ResourceTypes(Enum):
-    Logs = auto()
-    Wood = auto()
-    Stone = auto()
-    Brick = auto()
-    People = auto()
-    Food = auto()
-    Coin = auto()
+    Logs = "Logs"
+    Wood = "Wood"
+    Stone = "Stone"
+    Brick = "Brick"
+    People = "People"
+    Food = "Food"
+    Coin = "Coin"
 
 
 class Resource:

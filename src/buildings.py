@@ -9,14 +9,14 @@ from enum import auto
 import math
 
 class BuildingTypes(Enum):
-    Smallstorage = auto()
-    Smallhouse = auto()
-    Lumbercamp = auto()
-    Woodmill = auto()
-    Quarry = auto()
-    Huntershut = auto()
-    Bank = auto()
-    Smallloan = auto()
+    Smallstorage = "Smallstorage"
+    Smallhouse = "Smallhouse"
+    Lumbercamp = "Lumbercamp"
+    Woodmill = "Woodmill"
+    Quarry = "Quarry"
+    Huntershut = "Huntershut"
+    Bank = "Bank"
+    Smallloan = "Smallloan"
 
 
 class Building:
@@ -126,8 +126,6 @@ def calc_max():
 
     for key_r, value_r in resources_dict.items():
         resources_dict[key_r].Amount = min(resources_dict[key_r].Amount, resources_dict[key_r].Max)
-
-
 
 
 buildings_dict = dict()
