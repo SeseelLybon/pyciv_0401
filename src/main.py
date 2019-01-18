@@ -1,7 +1,5 @@
 
 import pygame
-pygame.init()
-
 
 import generators
 import time
@@ -10,12 +8,12 @@ import button
 import scene
 
 from buildings import buildings_dict
-from buildings import BuildingTypes
 from buildings import calc_max
 
 from resources import resources_dict
-from resources import ResourceTypes
 
+
+pygame.init()
 print("Starting PyCiv 0401")
 
 
@@ -43,12 +41,12 @@ buttons = list()
 buttons.append(button.Button("Buildings", ((0, 0), (300, 100)), 10, 10))
 buttons.append(button.Button("Resources", ((300, 0), (300, 100)), 10, 10))
 
+for key_r, value_r in resources_dict.items():
+    scenes["Resources"].add_element(resources_dict[key_r])
 
 for key_b, value_b in buildings_dict.items():
     scenes["Buildings"].add_element(buildings_dict[key_b])
 
-for key_r, value_r in resources_dict.items():
-    scenes["Resources"].add_element(resources_dict[key_r])
 
 running = True
 
@@ -82,10 +80,8 @@ while running:
                 for thing in buttons:
                     if thing.check_collision((mousex, mousey)):
                         if thing.text == "Buildings":
-                            print("Activating scene", thing.text)
                             scene_active = "Buildings"
                         elif thing.text == "Resources":
-                            print("Activating scene", thing.text)
                             scene_active = "Resources"
 
                 for thing in scenes[scene_active].get_elements():

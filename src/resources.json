@@ -1,0 +1,37 @@
+{
+  "Logs": [
+    "Logs",
+    1000,
+    true
+  ],
+  "Wood": [
+    "Wood",
+    100,
+    true
+  ],
+  "Stone": [
+    "Stone",
+    100,
+    true
+  ],
+  "Brick": [
+    "Brick",
+    0,
+    false
+  ],
+  "People": [
+    "People",
+    1000,
+    true
+  ],
+  "Food": [
+    "Food",
+    100.0,
+    true
+  ],
+  "Coin": [
+    "Coin",
+    0,
+    false
+  ]
+}

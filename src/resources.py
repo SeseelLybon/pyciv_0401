@@ -2,19 +2,11 @@
 
 from enum import Enum
 from enum import auto
-
-
-resources_dict = dict()
+import json
 
 
 class ResourceTypes(Enum):
-    Logs = "Logs"
-    Wood = "Wood"
-    Stone = "Stone"
-    Brick = "Brick"
-    People = "People"
-    Food = "Food"
-    Coin = "Coin"
+    pass
 
 
 class Resource:
@@ -27,10 +19,29 @@ class Resource:
         self.isVisible = isvis
 
 
-resources_dict[ResourceTypes.Logs] = Resource(ResourceTypes.Logs, "Logs", 0)
-resources_dict[ResourceTypes.Wood] = Resource(ResourceTypes.Wood, "Wood", 1000)
-resources_dict[ResourceTypes.Stone] = Resource(ResourceTypes.Stone, "Stone", 1000)
-resources_dict[ResourceTypes.Brick] = Resource(ResourceTypes.Brick, "Brick", 0, False)
-resources_dict[ResourceTypes.People] = Resource(ResourceTypes.People, "People", 10)
-resources_dict[ResourceTypes.Food] = Resource(ResourceTypes.Food, "Food", 1000)
-resources_dict[ResourceTypes.Coin] = Resource(ResourceTypes.Coin, "Coin", 0)
+def generate_resource_dict():
+    global ResourceTypes
+    res_dict = dict()
+
+    with open("../src/resources.json", "r") as r:
+        loaded_resources = json.load(r)
+
+    resources = []
+    for key, value in loaded_resources.items():
+        resources.append(value[0])
+
+    ResourceTypes = Enum('ResourceTypes', resources)
+
+    for key, value in loaded_resources.items():
+        # Brick ['ResourceTypes.Brick', 0, False]
+        typ = ResourceTypes[value[0]]
+        res_dict[typ] = Resource(typ, key, value[1], value[2])
+
+    return res_dict
+
+
+resources_dict = generate_resource_dict()
+
+if __name__ == "__main__":
+    for i in ResourceTypes:
+        print(i)

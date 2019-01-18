@@ -4,11 +4,14 @@ from resources import ResourceTypes
 from resources import resources_dict
 
 from enum import Enum
-from enum import auto
+import json
 
-import math
 
 class BuildingTypes(Enum):
+    pass
+
+
+'''
     Smallstorage = "Smallstorage"
     Smallhouse = "Smallhouse"
     Lumbercamp = "Lumbercamp"
@@ -17,10 +20,16 @@ class BuildingTypes(Enum):
     Huntershut = "Huntershut"
     Bank = "Bank"
     Smallloan = "Smallloan"
+'''
 
 
 class Building:
-    def __init__(self, typ, name, amount=0, isvis=True, produces=None, consumes=None, stores=None, costs=None, destruction=None):
+    def __init__(self, typ, name, amount=0, isvis=True,
+                 produces=None,
+                 consumes=None,
+                 stores=None,
+                 costs=None,
+                 destruction=None):
         self.Type = typ
         self.Name = name
         self.Amount = amount
@@ -128,126 +137,68 @@ def calc_max():
         resources_dict[key_r].Amount = min(resources_dict[key_r].Amount, resources_dict[key_r].Max)
 
 
-buildings_dict = dict()
+def unpack_resources_dict(packed):
+    produces = dict()
+    consumes = dict()
+    stores = dict()
+    costs = dict()
+    destruction = dict()
 
-buildings_dict[BuildingTypes.Smallstorage] = Building(BuildingTypes.Smallstorage,
-                                                      "Small storage",
-                                                      amount=1,
-                                                      costs={ResourceTypes.Wood: 100,
-                                                             ResourceTypes.Stone: 100,
-                                                             ResourceTypes.People: 1
-                                                             },
-                                                      stores={ResourceTypes.Logs: 1000,
-                                                              ResourceTypes.Wood: 1000,
-                                                              ResourceTypes.Stone: 1000,
-                                                              ResourceTypes.Brick: 1000,
-                                                              ResourceTypes.Food: 100
-                                                              }
-                                                      )
+    for key_p, value_p in packed.items():
+        if key_p == "produces":
+            for key_, value_ in value_p.items():
+                typ = ResourceTypes[key_]
+                produces[typ] = value_
 
-buildings_dict[BuildingTypes.Smallhouse] = Building(BuildingTypes.Smallhouse,
-                                                    "Small house",
-                                                    amount=1,
-                                                    costs={ResourceTypes.Wood: 100,
-                                                           ResourceTypes.Stone: 100,
-                                                           ResourceTypes.People: 1
-                                                           },
-                                                    stores={ResourceTypes.People: 5
-                                                            },
-                                                    consumes={ResourceTypes.Food: 10
-                                                              },
-                                                    produces={ResourceTypes.People: 0.1
-                                                              },
-                                                    )
+        if key_p == "consumes":
+            for key_, value_ in value_p.items():
+                typ = ResourceTypes[key_]
+                consumes[typ] = value_
 
-buildings_dict[BuildingTypes.Lumbercamp] = Building(BuildingTypes.Lumbercamp,
-                                                    "Lumber camp",
-                                                    amount=0,
-                                                    costs={ResourceTypes.Wood: 100,
-                                                           ResourceTypes.Stone: 100,
-                                                           ResourceTypes.People: 1
-                                                           },
-                                                    produces={ResourceTypes.Logs: 10
-                                                              },
-                                                    destruction={ResourceTypes.Wood: 50,
-                                                                 ResourceTypes.Stone: 50,
-                                                                 ResourceTypes.People: 1
-                                                                 }
-                                                    )
+        if key_p == "stores":
+            for key_, value_ in value_p.items():
+                typ = ResourceTypes[key_]
+                stores[typ] = value_
 
-buildings_dict[BuildingTypes.Woodmill] = Building(BuildingTypes.Woodmill,
-                                                  "Wood mill",
-                                                  amount=0,
-                                                  costs={ResourceTypes.Wood: 100,
-                                                         ResourceTypes.Stone: 100,
-                                                         ResourceTypes.People: 1
-                                                         },
-                                                  consumes={ResourceTypes.Logs: 10
-                                                            },
-                                                  produces={ResourceTypes.Wood: 10
-                                                            },
-                                                  destruction={ResourceTypes.Wood: 50,
-                                                               ResourceTypes.Stone: 50,
-                                                               ResourceTypes.People: 1
-                                                               }
-                                                  )
+        if key_p == "costs":
+            for key_, value_ in value_p.items():
+                typ = ResourceTypes[key_]
+                costs[typ] = value_
 
-buildings_dict[BuildingTypes.Quarry] = Building(BuildingTypes.Quarry,
-                                                "Quarry",
-                                                amount=0,
-                                                costs={ResourceTypes.Wood: 100,
-                                                       ResourceTypes.Stone: 100,
-                                                       ResourceTypes.People: 1
-                                                       },
-                                                produces={ResourceTypes.Stone: 10
-                                                          },
-                                                destruction={ResourceTypes.Wood: 50,
-                                                             ResourceTypes.Stone: 50,
-                                                             ResourceTypes.People: 1
-                                                             }
-                                                )
+        if key_p == "destruction":
+            for key_, value_ in value_p.items():
+                typ = ResourceTypes[key_]
+                destruction[typ] = value_
 
-buildings_dict[BuildingTypes.Huntershut] = Building(BuildingTypes.Huntershut,
-                                                    "Hunter's hut",
-                                                    amount=0,
-                                                    costs={ResourceTypes.Wood: 100,
-                                                           ResourceTypes.Stone: 100,
-                                                           ResourceTypes.People: 1
-                                                           },
-                                                    produces={ResourceTypes.Food: 10
-                                                              },
-                                                    destruction={ResourceTypes.Wood: 50,
-                                                                 ResourceTypes.Stone: 50,
-                                                                 ResourceTypes.People: 1
-                                                                 }
-                                                    )
+    return produces, consumes, stores, costs, destruction
 
-buildings_dict[BuildingTypes.Bank] = Building(BuildingTypes.Bank,
-                                              "Bank",
-                                              amount=0,
-                                              costs={ResourceTypes.Wood: 100,
-                                                     ResourceTypes.Stone: 100,
-                                                     ResourceTypes.People: 1
-                                                     },
-                                              stores={ResourceTypes.Coin: 500
-                                                      },
-                                              produces={
-                                                        },
-                                              destruction={ResourceTypes.Wood: 50,
-                                                           ResourceTypes.Stone: 50,
-                                                           ResourceTypes.People: 1
-                                                           }
-                                              )
 
-buildings_dict[BuildingTypes.Smallloan] = Building(BuildingTypes.Smallloan,
-                                                   "Small loan",
-                                                   amount=0,
-                                                   costs={ResourceTypes.Coin: -100
-                                                          },
-                                                   produces={
-                                                             },
-                                                   consumes={ResourceTypes.Coin: 0.1
-                                                             },
-                                                   destruction={ResourceTypes.Coin: -100
-                                                                }
-                                                   )
+# (self, typ, name, amount=0, isvis=True, produces=None,consumes=None,stores=None,costs=None,destruction=None):
+
+def generate_buildings_dict():
+    global BuildingTypes
+    bul_dict = dict()
+
+    with open("../src/buildings.json", "r") as r:
+        loaded_buildings = json.load(r)
+
+    buildings = []
+    for key, value in loaded_buildings.items():
+        buildings.append(value[0])
+    BuildingTypes = Enum('BuildingTypes', buildings)
+
+    for key, value in loaded_buildings.items():
+        typ = BuildingTypes[value[0]]
+        produces, consumes, stores, costs, destruction = unpack_resources_dict(value[3])
+
+        bul_dict[typ] = Building(typ, key, value[1], value[2],
+                                 produces, consumes, stores, costs, destruction)
+
+    return bul_dict
+
+
+buildings_dict = generate_buildings_dict()
+
+if __name__ == "__main__":
+    for i in BuildingTypes:
+        print(i)

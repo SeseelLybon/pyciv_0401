@@ -1,0 +1,171 @@
+{
+  "Small storage": [
+    "Smallstorage",
+    1,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "stores": {
+        "Logs": 1000,
+        "Wood": 1000,
+        "Stone": 1000,
+        "Brick": 1000,
+        "Food": 1000
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Small house": [
+    "Smallhouse",
+    1,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "stores": {
+        "People": 5
+      },
+      "consumes": {
+        "Food": 10
+      },
+      "produces": {
+        "People": 0.1
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Lumber jack": [
+    "Lumberjack",
+    1,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Logs": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Wood mill": [
+    "Woodmill",
+    1,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Logs": 10
+      },
+      "produces": {
+        "Wood": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Quarry": [
+    "Quarry",
+    1,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Stone": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Hunter's hut": [
+    "Huntershut",
+    1,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Food": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Bank": [
+    "Bank",
+    1,
+    false,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "stores": {
+          "Coin": 500
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Small loan": [
+    "Smallloan",
+    1,
+    false,
+    {
+      "costs": {
+        "Coin": -100
+      },
+      "consumes": {
+        "Coin": 0.1
+      },
+      "destruction": {
+        "Coin": -100
+      }
+    }
+  ]
+}

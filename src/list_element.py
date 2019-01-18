@@ -158,10 +158,8 @@ class List_element:
     def check_collision(self, pos):
         if self.isBuilding:
             if self.rect_button_add.collidepoint(pos):
-                print("Pressed", self.Thing.Name, "Add")
                 self.Thing.add_building()
             elif self.rect_button_remove.collidepoint(pos):
-                print("Pressed", self.Thing.Name, "Remove")
                 self.Thing.remove_building()
 
     def blit(self, offset):
@@ -185,4 +183,4 @@ class List_element:
                     ]
 
     def do(self, args=None):
-        print("Did click on", self.Thing.Name, self.Thing.Amount)
+        pass
