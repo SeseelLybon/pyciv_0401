@@ -68,41 +68,46 @@ class Building:
         # subtract resources
 
     def remove_building(self):
-        # if resources are all available:
         can_remove = True
+        # if there are no buildings, no point in doing any of this
         if self.Amount > 0:
+            # go through all the Destruction resources
             for key_r, value_r in self.Destruction.items():
+                # if the value is below 0
                 if value_r < 0:
-                    if resources_dict[key_r].Amount - value_r < 0:
-                        can_remove = False
-                elif value_r > 0:
-                    if resources_dict[key_r].Amount - value_r > resources_dict[key_r].Max:
+                    # if the Amount of that resource drops below 0
+                    if resources_dict[key_r].Amount + value_r < 0:
+                        # can't remove the building
                         can_remove = False
         else:
             can_remove = False
 
         if can_remove:
             for key_r, value_r in self.Destruction.items():
-                resources_dict[key_r].Amount -= value_r
+                resources_dict[key_r].Amount += value_r
             self.Amount -= 1
 
     def produce(self):
         amount_produced = self.Amount
 
+        # check if the buildings can consume enough resources
         for key_r, value_r in self.Consumes.items():
             # Calc maximum amount of buildings that can produce
             a_min = resources_dict[key_r].Amount // value_r
             amount_produced = min(amount_produced, a_min)
 
+        # check if the buildings aren't producing too much resources
         for key_r, value_r in self.Produces.items():
             # Calc maximum amount of buildings that can add to produced storage
             a_max = (resources_dict[key_r].Max - resources_dict[key_r].Amount) / value_r
             amount_produced = min(amount_produced, a_max)
 
+        # actually consume resources
         for key_r, value_r in self.Consumes.items():
             resources_dict[key_r].Amount -= value_r * amount_produced
             resources_dict[key_r].Produced -= value_r * amount_produced
 
+        # actually produce resources
         for key_r, value_r in self.Produces.items():
             resources_dict[key_r].Amount += value_r * amount_produced
             resources_dict[key_r].Produced += value_r * amount_produced
