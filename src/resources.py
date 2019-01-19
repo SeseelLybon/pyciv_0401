@@ -23,7 +23,7 @@ def generate_resource_dict():
     global ResourceTypes
     res_dict = dict()
 
-    with open("../src/resources.json", "r") as r:
+    with open("resources/resources.json", "r") as r:
         loaded_resources = json.load(r)
 
     resources = []

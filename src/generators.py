@@ -38,22 +38,25 @@ def generate_saveable_dicts():
 
 
 def generate_savefile():
-    if not os.path.exists('../saves'):
-        os.makedirs('../saves')
+    path = "resources/saves"
+    if not os.path.exists(path):
+        os.makedirs(path)
 
-    with open("../saves/savefile.json.tmp", "w") as f:
+    with open(path+"/savefile.json.tmp", "w") as f:
         f.write(json.dumps(generate_saveable_dicts(),
                                sort_keys=True, indent=4, separators=(',', ': ')))
 
-    if os.path.exists('../saves/savefile.json'):
-        os.remove('../saves/savefile.json')
+    if os.path.exists(path+"/savefile.json"):
+        os.remove(path+"/savefile.json")
 
-    os.rename('../saves/savefile.json.tmp', '../saves/savefile.json')
+    os.rename(path+"/savefile.json.tmp", path+"/savefile.json")
 
 
 def load_savefile():
-    if os.path.exists('../saves/savefile.json'):
-        with open("../saves/savefile.json", "r") as f:
+    path = "resources/saves"
+
+    if os.path.exists(path+"/savefile.json"):
+        with open(path+"/savefile.json", "r") as f:
             saved_object = json.load(f)
 
         for key, value in saved_object.items():

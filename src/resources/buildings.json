@@ -51,7 +51,7 @@
   ],
   "Lumber jack": [
     "Lumberjack",
-    1,
+    0,
     true,
     {
       "costs": {
@@ -71,7 +71,7 @@
   ],
   "Wood mill": [
     "Woodmill",
-    1,
+    0,
     true,
     {
       "costs": {
@@ -94,7 +94,7 @@
   ],
   "Quarry": [
     "Quarry",
-    1,
+    0,
     true,
     {
       "costs": {
@@ -114,7 +114,7 @@
   ],
   "Hunter's hut": [
     "Huntershut",
-    1,
+    0,
     true,
     {
       "costs": {
@@ -134,7 +134,7 @@
   ],
   "Bank": [
     "Bank",
-    1,
+    0,
     false,
       {
         "costs": {
@@ -154,7 +154,7 @@
   ],
   "Small loan": [
     "Smallloan",
-    1,
+    0,
     false,
     {
       "costs": {

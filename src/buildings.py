@@ -179,7 +179,7 @@ def generate_buildings_dict():
     global BuildingTypes
     bul_dict = dict()
 
-    with open("../src/buildings.json", "r") as r:
+    with open("resources/buildings.json", "r") as r:
         loaded_buildings = json.load(r)
 
     buildings = []
