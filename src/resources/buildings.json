@@ -14,7 +14,16 @@
         "Wood": 1000,
         "Stone": 1000,
         "Brick": 1000,
-        "Food": 1000
+        "Game": 1000,
+        "Wildvegetables": 1000,
+        "Simplemeal": 1000,
+        "Finemeal": 1000,
+        "Coal": 1000,
+        "Ironore": 1000,
+        "Ironingots": 1000,
+        "Goldore": 1000,
+        "Goldingots": 1000,
+        "Swords": 1000
       },
       "destruction": {
         "Wood": 50,
@@ -30,14 +39,13 @@
     {
       "costs": {
         "Wood": 100,
-        "Stone": 100,
-        "People": 1
+        "Stone": 100
       },
       "stores": {
         "People": 5
       },
       "consumes": {
-        "Food": 10
+        "Simplemeal": 3
       },
       "produces": {
         "People": 0.1
@@ -123,7 +131,205 @@
         "People": 1
       },
       "produces": {
-        "Food": 10
+        "Game": 1
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Forager's hut": [
+    "Foragershut",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Wildvegetables": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Simple kitchen": [
+    "Simplekitchen",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Wildvegetables": 10
+      },
+      "produces": {
+        "Simplemeal": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Fine kitchen": [
+    "Finekitchen",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Game": 5,
+        "Wildvegetables": 5
+      },
+      "produces": {
+        "Finemeal": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Coal mine": [
+    "Coalmine",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Coal": 20
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Iron mine": [
+    "Ironmine",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Ironore": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Iron smelter": [
+    "Ironsmelter",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Ironore": 10,
+        "Coal": 10
+      },
+      "produces": {
+        "Ironingots": 5
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Gold mine": [
+    "Goldmine",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Goldore": 1
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Gold smelter": [
+    "Goldsmelter",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Goldore": 10,
+        "Coal": 10
+      },
+      "produces": {
+        "Goldingots": 1
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Mint": [
+    "Mint",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Goldingots": 1
+      },
+      "produces": {
+        "Coin": 100
       },
       "destruction": {
         "Wood": 50,
@@ -135,7 +341,7 @@
   "Bank": [
     "Bank",
     0,
-    false,
+    true,
       {
         "costs": {
           "Wood": 100,
@@ -143,7 +349,74 @@
           "People": 1
         },
         "stores": {
-          "Coin": 500
+          "Coin": 5000
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Barracks": [
+    "Barracks",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "stores": {
+          "Soldiers": 100
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Sword Blacksmith": [
+    "Swordblacksmith",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Ironingots": 3
+        },
+        "produces": {
+          "Swords": 1
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Swordsman recruiter": [
+    "Swordsmanrecruiter",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Swords": 1,
+          "People": 1
+        },
+        "produces": {
+          "Soldiers": 1
         },
         "destruction": {
           "Wood": 50,
@@ -155,7 +428,7 @@
   "Small loan": [
     "Smallloan",
     0,
-    false,
+    true,
     {
       "costs": {
         "Coin": -100
@@ -165,6 +438,19 @@
       },
       "destruction": {
         "Coin": -100
+      }
+    }
+  ],
+  "Bandit camp": [
+    "Bandit camp",
+    5,
+    true,
+    {
+      "costs": {
+        "Unbuildable": 1
+      },
+      "destruction": {
+        "Soldiers": -10
       }
     }
   ]

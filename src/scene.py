@@ -19,16 +19,21 @@ class Scene:
         ))
 
     def move_scene(self, offset):
+        # If the offset is negative (scroll up)
         if offset[1] < 0:
-            if self.position[1]+offset[1] > self.top[1]:
-                self.position = (self.position[0]+offset[0], self.position[1]+offset[1])
-        elif offset[1] > 0:
             bottom = 0
             for element in self.container:
                 if element.Thing.isVisible:
                     bottom += 30
-            if self.position[1]+offset[1] < bottom:
-                self.position = (self.position[0] + offset[0], self.position[1] + offset[1])
+
+            if self.position[1]+bottom+offset[1] >= self.top[1]+30*8:
+                self.position = (self.position[0]+offset[0], self.position[1]+offset[1])
+
+        # If the offset is positive (scroll down)
+        elif offset[1] > 0:
+
+            if self.position[1]+offset[1] <= self.top[1]:
+                self.position = (self.position[0]+offset[0], self.position[1]+offset[1])
 
     def blit(self):
         temp = list()

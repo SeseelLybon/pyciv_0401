@@ -150,25 +150,28 @@ def unpack_resources_dict(packed):
                 typ = ResourceTypes[key_]
                 produces[typ] = value_
 
-        if key_p == "consumes":
+        elif key_p == "consumes":
             for key_, value_ in value_p.items():
                 typ = ResourceTypes[key_]
                 consumes[typ] = value_
 
-        if key_p == "stores":
+        elif key_p == "stores":
             for key_, value_ in value_p.items():
                 typ = ResourceTypes[key_]
                 stores[typ] = value_
 
-        if key_p == "costs":
+        elif key_p == "costs":
             for key_, value_ in value_p.items():
                 typ = ResourceTypes[key_]
                 costs[typ] = value_
 
-        if key_p == "destruction":
+        elif key_p == "destruction":
             for key_, value_ in value_p.items():
                 typ = ResourceTypes[key_]
                 destruction[typ] = value_
+        else:
+            raise ValueError("produces, consumes, stores, costs, destruction type failed")
+
 
     return produces, consumes, stores, costs, destruction
 

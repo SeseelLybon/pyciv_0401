@@ -58,7 +58,7 @@ def load_savefile():
     if os.path.exists(path+"/savefile.json"):
         with open(path+"/savefile.json", "r") as f:
             saved_object = json.load(f)
-
+        # try:
         for key, value in saved_object.items():
             if key == "Buildings":
                 for key_, value_ in value.items():
@@ -72,4 +72,6 @@ def load_savefile():
                     typ = ResourceTypes[value_[0]]
                     resources_dict[typ].Amount = value_[1]
                     resources_dict[typ].isVisible = value_[2]
+        # except:
+            # print("Couldn't properly load savefile: savefile might be outdated")
 

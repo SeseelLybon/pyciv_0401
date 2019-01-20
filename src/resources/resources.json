@@ -1,4 +1,9 @@
 {
+  "Unbuildable": [
+    "Unbuildable",
+    0,
+    false
+  ],
   "Logs": [
     "Logs",
     0,
@@ -14,24 +19,104 @@
     1000,
     true
   ],
-  "Brick": [
-    "Brick",
-    0,
-    false
-  ],
   "People": [
     "People",
     5,
     true
   ],
-  "Food": [
-    "Food",
-    100,
+  "Game": [
+    "Game",
+    0,
+    true
+  ],
+  "Wild vegetables": [
+    "Wildvegetables",
+    0,
+    true
+  ],
+  "Simplemeal": [
+    "Simplemeal",
+    0,
+    true
+  ],
+  "Finemeal": [
+    "Finemeal",
+    0,
+    true
+  ],
+  "Coal": [
+    "Coal",
+    0,
+    true
+  ],
+  "Iron ore": [
+    "Ironore",
+    0,
+    true
+  ],
+  "Iron ingots": [
+    "Ironingots",
+    0,
+    true
+  ],
+  "Gold ore": [
+    "Goldore",
+    0,
+    true
+  ],
+  "Gold ingots": [
+    "Goldingots",
+    0,
     true
   ],
   "Coin": [
     "Coin",
     0,
-    false
+    true
+  ],
+  "Swords": [
+    "Swords",
+    0,
+    true
+  ],
+  "Bows": [
+    "Bow",
+    0,
+    true
+  ],
+  "Cows": [
+    "Cows",
+    0,
+    true
+  ],
+  "Leather": [
+    "Leather",
+    0,
+    true
+  ],
+  "Leather armour": [
+    "Leatherarmour",
+    0,
+    true
+  ],
+  "Soldiers": [
+    "Soldiers",
+    0,
+    true
+  ],
+  "Bowman": [
+    "Bowman",
+    0,
+    true
+  ],
+  "Small army": [
+    "Small army",
+    0,
+    true
+  ],
+  "Brick": [
+    "Brick",
+    0,
+    true
   ]
 }

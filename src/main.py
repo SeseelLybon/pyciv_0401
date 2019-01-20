@@ -88,11 +88,11 @@ while running:
                     thing.check_collision((mousex, mousey))
             elif event.button == 4:
                 # move the active scene up
-                scenes.get(scene_active).move_scene((0, -20))
+                scenes.get(scene_active).move_scene((0, 40))
                 pass
             elif event.button == 5:
                 # move the active scene down
-                scenes.get(scene_active).move_scene((0, 20))
+                scenes.get(scene_active).move_scene((0, -40))
                 pass
 
     # Do things here
