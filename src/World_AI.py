@@ -8,7 +8,9 @@ from resources import resources_dict
 
 
 def live():
-    pass
+    if resources_dict[ResourceTypes.Troubles].Amount >= 10:
+        resources_dict[ResourceTypes.AI_Build_Token].Amount += 1
+        buildings_dict[BuildingTypes.Smallbanditcamp].add_building()
 
 
 

@@ -1,4 +1,24 @@
 {
+  "InteralStructure": [
+    "InteralStructure",
+    1,
+    false,
+    {
+      "costs": {
+      },
+      "stores": {
+        "AI_Build_Token": 9999,
+        "Troubles": 9999
+      },
+      "consumes": {
+      },
+      "produces": {
+        "Troubles": 1
+      },
+      "destruction": {
+      }
+    }
+  ],
   "Small storage": [
     "Smallstorage",
     1,
@@ -491,7 +511,8 @@
     true,
     {
       "costs": {
-        "Unbuildable": 1
+        "AI_Build_Token": 1,
+        "Troubles": 10
       },
       "consumes": {
         "Coin": 1

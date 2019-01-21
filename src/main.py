@@ -12,7 +12,7 @@ from buildings import calc_max
 
 from resources import resources_dict
 
-# from World_AI import live
+import World_AI
 
 
 pygame.init()
@@ -103,7 +103,7 @@ while running:
     if frames_passed % time_frame == 0:
         frames_passed = 0
 
-#        World_AI.live()
+        World_AI.live()
 
         calc_max()
 
