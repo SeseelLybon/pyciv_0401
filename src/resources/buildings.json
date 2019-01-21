@@ -39,21 +39,21 @@
     {
       "costs": {
         "Wood": 100,
-        "Stone": 100
+        "Stone": 100,
+        "People": -5
       },
       "stores": {
         "People": 5
       },
       "consumes": {
-        "Simplemeal": 3
+        "Simplemeal": 15
       },
       "produces": {
-        "People": 0.1
+        "People": 0.01
       },
       "destruction": {
         "Wood": 50,
-        "Stone": 50,
-        "People": 1
+        "Stone": 50
       }
     }
   ],
@@ -175,6 +175,50 @@
       },
       "produces": {
         "Simplemeal": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Wheat farm": [
+    "Wheat farm",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Wheat": 100
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Dairy farm": [
+    "Dairyfarm",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Wheat": 10
+      },
+      "produces": {
+        "Cheese": 10,
+        "Cows": 0.1
       },
       "destruction": {
         "Wood": 50,
@@ -441,13 +485,16 @@
       }
     }
   ],
-  "Bandit camp": [
-    "Bandit camp",
+  "Small bandit camp": [
+    "Smallbanditcamp",
     5,
     true,
     {
       "costs": {
         "Unbuildable": 1
+      },
+      "consumes": {
+        "Coin": 1
       },
       "destruction": {
         "Soldiers": -10

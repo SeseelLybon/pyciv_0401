@@ -4,6 +4,16 @@
     0,
     false
   ],
+  "Troubles": [
+    "Troubles",
+    0,
+    false
+  ],
+  "Thieves": [
+    "Thieves",
+    0,
+    false
+  ],
   "Logs": [
     "Logs",
     0,
@@ -31,6 +41,21 @@
   ],
   "Wild vegetables": [
     "Wildvegetables",
+    0,
+    true
+  ],
+  "Wheat": [
+  "Wheat",
+    0,
+    true
+  ],
+  "Water": [
+  "Water",
+    0,
+    true
+  ],
+  "Cheese": [
+  "Cheese",
     0,
     true
   ],

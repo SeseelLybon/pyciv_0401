@@ -42,9 +42,12 @@ def generate_savefile():
     if not os.path.exists(path):
         os.makedirs(path)
 
+    # try:
     with open(path+"/savefile.json.tmp", "w") as f:
         f.write(json.dumps(generate_saveable_dicts(),
                                sort_keys=True, indent=4, separators=(',', ': ')))
+    # except KeyError as ke:
+        # print(ke, "Couldn't find key in savefile", "At this time, manually delete")
 
     if os.path.exists(path+"/savefile.json"):
         os.remove(path+"/savefile.json")
@@ -72,6 +75,6 @@ def load_savefile():
                     typ = ResourceTypes[value_[0]]
                     resources_dict[typ].Amount = value_[1]
                     resources_dict[typ].isVisible = value_[2]
-        # except:
-            # print("Couldn't properly load savefile: savefile might be outdated")
+        # except KeyError as ke:
+            # raise KeyError(ke, "Couldn't find this key", "manually remove or edit key")
 

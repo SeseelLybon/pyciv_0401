@@ -12,6 +12,8 @@ from buildings import calc_max
 
 from resources import resources_dict
 
+# from World_AI import live
+
 
 pygame.init()
 print("Starting PyCiv 0401")
@@ -100,6 +102,9 @@ while running:
     frames_passed += 1
     if frames_passed % time_frame == 0:
         frames_passed = 0
+
+#        World_AI.live()
+
         calc_max()
 
         for building in buildings_dict.values():

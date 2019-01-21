@@ -105,6 +105,8 @@ class Building:
             a_min = resources_dict[key_r].Amount // value_r
             amount_produced = min(amount_produced, a_min)
 
+        amount_produced = abs(amount_produced)
+
         # check if the buildings aren't producing too much resources
         for key_r, value_r in self.Produces.items():
             # Calc maximum amount of buildings that can add to produced storage
@@ -137,7 +139,7 @@ def calc_max():
         resources_dict[key_r].Amount = min(resources_dict[key_r].Amount, resources_dict[key_r].Max)
 
 
-def unpack_resources_dict(packed):
+def unpack_resources_dict(packed, building):
     produces = dict()
     consumes = dict()
     stores = dict()
@@ -170,8 +172,8 @@ def unpack_resources_dict(packed):
                 typ = ResourceTypes[key_]
                 destruction[typ] = value_
         else:
-            raise ValueError("produces, consumes, stores, costs, destruction type failed")
-
+            raise ValueError("produces, consumes, stores, costs, destruction type failed",
+                             key_p, building)
 
     return produces, consumes, stores, costs, destruction
 
@@ -192,7 +194,7 @@ def generate_buildings_dict():
 
     for key, value in loaded_buildings.items():
         typ = BuildingTypes[value[0]]
-        produces, consumes, stores, costs, destruction = unpack_resources_dict(value[3])
+        produces, consumes, stores, costs, destruction = unpack_resources_dict(value[3], key)
 
         bul_dict[typ] = Building(typ, key, value[1], value[2],
                                  produces, consumes, stores, costs, destruction)
