@@ -37,7 +37,7 @@ def generate_resource_dict():
 
     ResourceTypes = Enum('ResourceTypes', resources)
 
-    for key, value in loaded_resources.items():
+    for key, value in sorted(loaded_resources.items()):
         # Brick ['ResourceTypes.Brick', 0, False]
         typ = ResourceTypes[value[0]]
         res_dict[typ] = Resource(typ, key, value[1], value[2])

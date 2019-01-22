@@ -204,7 +204,7 @@ def generate_buildings_dict():
 
     BuildingTypes = Enum('BuildingTypes', buildings)
 
-    for key, value in loaded_buildings.items():
+    for key, value in sorted(loaded_buildings.items()):
         typ = BuildingTypes[value[0]]
         produces, consumes, stores, costs, destruction = unpack_resources_dict(value[3], key)
 
