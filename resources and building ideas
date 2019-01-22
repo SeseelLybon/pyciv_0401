@@ -5,15 +5,9 @@ village block
 city block
 
 lumberjack
-lumber camp
-lumber yard
 
 woodcutter
 sawmill
-
-hunter's hut
-hunters' camp
-hunters' guild
 
 iron mine
 coal mine
@@ -30,7 +24,19 @@ coin mint
 mages guild
 quests
 
-carpenter
+light weapons
+light armour
+
+draft soldiers
+
+Light soldiers
+Medium soldiers
+Heavy Soldiers
+
+organize army
+
+Small light army
+Medium light army
 
 Bank
 Small Loan (consumes coin slowly, gives a small amount of coin directly)

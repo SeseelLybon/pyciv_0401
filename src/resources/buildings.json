@@ -9,6 +9,7 @@
       "stores": {
         "AI_Build_Token": 9999,
         "Troubles": 9999
+      },
       "consumes": {
       },
       "produces": {
@@ -32,8 +33,6 @@
         "Logs": 1000,
         "Wood": 1000,
         "Stone": 1000,
-        "Bricks": 1000,
-        "Meat": 1000,
         "Vegetables": 1000,
         "Simplemeals": 1000,
         "Coal": 1000,
@@ -41,7 +40,9 @@
         "Ironingots": 1000,
         "Goldore": 1000,
         "Goldingots": 1000,
-        "Swords": 1000
+        "Leather": 1000,
+        "Lightweapons": 1000,
+        "Lightarmour": 1000
       },
       "destruction": {
         "Wood": 50,
@@ -181,50 +182,6 @@
       }
     }
   ],
-  "Wheat farm": [
-    "Wheat farm",
-    0,
-    true,
-    {
-      "costs": {
-        "Wood": 100,
-        "Stone": 100,
-        "People": 1
-      },
-      "produces": {
-        "Wheat": 100
-      },
-      "destruction": {
-        "Wood": 50,
-        "Stone": 50,
-        "People": 1
-      }
-    }
-  ],
-  "Mill": [
-    "Mill",
-    0,
-    true,
-    {
-      "costs": {
-        "Wood": 100,
-        "Stone": 100,
-        "People": 1
-      },
-      "consumes": {
-        "Wheat": 10
-      },
-      "produces": {
-        "Hay": 5,
-        "Flour": 5
-      },
-      "destruction": {
-        "Wood": 50,
-        "Stone": 50,
-        "People": 1
-      }
-    }
-  ],
   "Cow farm": [
     "Cowfarm",
     0,
@@ -235,8 +192,8 @@
         "Stone": 100,
         "People": 1
       },
-      "consumes": {
-        "Wheat": 10
+      "stores": {
+        "Cows": 5
       },
       "produces": {
         "Cows": 0.1
@@ -247,6 +204,29 @@
         "People": 1
       }
     }
+  ],
+  "Butcher/Tanner": [
+    "Butcher",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Cows": 1
+        },
+        "produces": {
+          "Leather": 20
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
   ],
   "Coal mine": [
     "Coalmine",
@@ -410,7 +390,8 @@
           "People": 1
         },
         "stores": {
-          "Soldiers": 100
+          "Lightsoldiers": 20,
+          "Smallarmy": 1
         },
         "destruction": {
           "Wood": 50,
@@ -419,8 +400,31 @@
         }
       }
   ],
-  "Sword Blacksmith": [
-    "Swordblacksmith",
+  "Light armourer": [
+    "Lightarmourer",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Leather": 3
+        },
+        "produces": {
+          "Lightarmour": 1
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Light blacksmith": [
+    "Lightblacksmith",
     0,
     true,
       {
@@ -433,7 +437,7 @@
           "Ironingots": 3
         },
         "produces": {
-          "Swords": 1
+          "Lightweapons": 1
         },
         "destruction": {
           "Wood": 50,
@@ -442,8 +446,8 @@
         }
       }
   ],
-  "Swordsman recruiter": [
-    "Swordsmanrecruiter",
+  "Draft light soldiers": [
+    "Draftlightsoldiers",
     0,
     true,
       {
@@ -453,11 +457,12 @@
           "People": 1
         },
         "consumes": {
-          "Swords": 1,
+          "Lightweapons": 1,
+          "Lightarmour": 1,
           "People": 1
         },
         "produces": {
-          "Soldiers": 1
+          "Lightsoldiers": 1
         },
         "destruction": {
           "Wood": 50,
@@ -482,6 +487,23 @@
       }
     }
   ],
+  "Organize small army": [
+    "Organizesmallarmy",
+    0,
+    true,
+    {
+      "costs": {
+        "Lightsoldiers": 20,
+        "Coin": 200
+      },
+      "produces": {
+        "Smallarmy": 1
+      },
+      "destruction": {
+        "Lightsoldiers": 50
+      }
+    }
+  ],
   "Small bandit camp": [
     "Smallbanditcamp",
     0,
@@ -491,11 +513,9 @@
         "AI_Build_Token": 1,
         "Troubles": 100
       },
-      "consumes": {
-        "Simplemeals": 40
-      },
       "destruction": {
-        "Soldiers": -10
+        "Smallarmy": -1,
+        "Coin": 500
       }
     }
   ]

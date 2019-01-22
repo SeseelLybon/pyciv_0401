@@ -9,11 +9,6 @@
     0,
     true
   ],
-  "Thieves": [
-    "Thieves",
-    0,
-    false
-  ],
   "Trees": [
     "Trees",
     1000,
@@ -39,48 +34,13 @@
     5,
     true
   ],
-  "Game": [
-    "Game",
-    1000,
-    false
-  ],
-  "Meat": [
-    "Meat",
-    0,
-    true
-  ],
-  "Wild vegetables": [
-    "Wildvegetables",
-    2000,
-    false
-  ],
   "Vegetables": [
     "Vegetables",
     0,
     true
   ],
-  "Wheat": [
-  "Wheat",
-    0,
-    true
-  ],
-  "Water": [
-  "Water",
-    0,
-    true
-  ],
-  "Cheese": [
-  "Cheese",
-    0,
-    true
-  ],
-  "Simplemeals": [
+  "Simple meals": [
     "Simplemeals",
-    0,
-    true
-  ],
-  "Finemeals": [
-    "Finemeals",
     0,
     true
   ],
@@ -114,16 +74,6 @@
     0,
     true
   ],
-  "Swords": [
-    "Swords",
-    0,
-    true
-  ],
-  "Bows": [
-    "Bow",
-    0,
-    true
-  ],
   "Cows": [
     "Cows",
     0,
@@ -134,28 +84,23 @@
     0,
     true
   ],
-  "Leather armour": [
-    "Leatherarmour",
+  "Light weapons": [
+    "Lightweapons",
     0,
     true
   ],
-  "Soldiers": [
-    "Soldiers",
+  "Light armour": [
+    "Lightarmour",
     0,
     true
   ],
-  "Bowmen": [
-    "Bowmen",
+  "Light soldiers": [
+    "Lightsoldiers",
     0,
     true
   ],
   "Small army": [
-    "Small army",
-    0,
-    true
-  ],
-  "Bricks": [
-    "Bricks",
+    "Smallarmy",
     0,
     true
   ]
