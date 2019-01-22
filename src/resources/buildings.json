@@ -9,7 +9,6 @@
       "stores": {
         "AI_Build_Token": 9999,
         "Troubles": 9999
-      },
       "consumes": {
       },
       "produces": {
@@ -34,10 +33,9 @@
         "Wood": 1000,
         "Stone": 1000,
         "Bricks": 1000,
-        "Game": 1000,
-        "Wildvegetables": 1000,
+        "Meat": 1000,
+        "Vegetables": 1000,
         "Simplemeals": 1000,
-        "Finemeals": 1000,
         "Coal": 1000,
         "Ironore": 1000,
         "Ironingots": 1000,
@@ -140,26 +138,6 @@
       }
     }
   ],
-  "Hunter's hut": [
-    "Huntershut",
-    0,
-    true,
-    {
-      "costs": {
-        "Wood": 100,
-        "Stone": 100,
-        "People": 1
-      },
-      "produces": {
-        "Game": 1
-      },
-      "destruction": {
-        "Wood": 50,
-        "Stone": 50,
-        "People": 1
-      }
-    }
-  ],
   "Forager's hut": [
     "Foragershut",
     0,
@@ -171,7 +149,7 @@
         "People": 1
       },
       "produces": {
-        "Wildvegetables": 10
+        "Vegetables": 15
       },
       "destruction": {
         "Wood": 50,
@@ -191,10 +169,10 @@
         "People": 1
       },
       "consumes": {
-        "Wildvegetables": 10
+        "Vegetables": 15
       },
       "produces": {
-        "Simplemeals": 10
+        "Simplemeals": 15
       },
       "destruction": {
         "Wood": 50,
@@ -223,8 +201,8 @@
       }
     }
   ],
-  "Dairy farm": [
-    "Dairyfarm",
+  "Mill": [
+    "Mill",
     0,
     true,
     {
@@ -237,8 +215,8 @@
         "Wheat": 10
       },
       "produces": {
-        "Cheese": 10,
-        "Cows": 0.1
+        "Hay": 5,
+        "Flour": 5
       },
       "destruction": {
         "Wood": 50,
@@ -247,8 +225,8 @@
       }
     }
   ],
-  "Fine kitchen": [
-    "Finekitchen",
+  "Cow farm": [
+    "Cowfarm",
     0,
     true,
     {
@@ -258,11 +236,10 @@
         "People": 1
       },
       "consumes": {
-        "Game": 5,
-        "Wildvegetables": 5
+        "Wheat": 10
       },
       "produces": {
-        "Finemeals": 10
+        "Cows": 0.1
       },
       "destruction": {
         "Wood": 50,
