@@ -1,10 +1,10 @@
 {
-  "AI_Build_Token": [
+  "~AI_Build_Token": [
     "AI_Build_Token",
     0,
     false
   ],
-  "Troubles": [
+  "~Troubles": [
     "Troubles",
     0,
     true
@@ -59,13 +59,13 @@
     0,
     true
   ],
-  "Simplemeal": [
-    "Simplemeal",
+  "Simplemeals": [
+    "Simplemeals",
     0,
     true
   ],
-  "Finemeal": [
-    "Finemeal",
+  "Finemeals": [
+    "Finemeals",
     0,
     true
   ],
@@ -129,8 +129,8 @@
     0,
     true
   ],
-  "Bowman": [
-    "Bowman",
+  "Bowmen": [
+    "Bowmen",
     0,
     true
   ],
@@ -139,8 +139,8 @@
     0,
     true
   ],
-  "Brick": [
-    "Brick",
+  "Bricks": [
+    "Bricks",
     0,
     true
   ]

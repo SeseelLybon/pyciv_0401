@@ -1,5 +1,5 @@
 {
-  "InteralStructure": [
+  "~InteralStructure": [
     "InteralStructure",
     1,
     false,
@@ -13,7 +13,7 @@
       "consumes": {
       },
       "produces": {
-        "Troubles": 1
+        "Troubles": 0.3
       },
       "destruction": {
       }
@@ -33,11 +33,11 @@
         "Logs": 1000,
         "Wood": 1000,
         "Stone": 1000,
-        "Brick": 1000,
+        "Bricks": 1000,
         "Game": 1000,
         "Wildvegetables": 1000,
-        "Simplemeal": 1000,
-        "Finemeal": 1000,
+        "Simplemeals": 1000,
+        "Finemeals": 1000,
         "Coal": 1000,
         "Ironore": 1000,
         "Ironingots": 1000,
@@ -60,13 +60,13 @@
       "costs": {
         "Wood": 100,
         "Stone": 100,
-        "People": -5
+        "People": -4
       },
       "stores": {
         "People": 5
       },
       "consumes": {
-        "Simplemeal": 15
+        "Simplemeals": 15
       },
       "produces": {
         "People": 0.01
@@ -194,7 +194,7 @@
         "Wildvegetables": 10
       },
       "produces": {
-        "Simplemeal": 10
+        "Simplemeals": 10
       },
       "destruction": {
         "Wood": 50,
@@ -262,7 +262,7 @@
         "Wildvegetables": 5
       },
       "produces": {
-        "Finemeal": 10
+        "Finemeals": 10
       },
       "destruction": {
         "Wood": 50,
@@ -507,15 +507,15 @@
   ],
   "Small bandit camp": [
     "Smallbanditcamp",
-    5,
+    0,
     true,
     {
       "costs": {
         "AI_Build_Token": 1,
-        "Troubles": 10
+        "Troubles": 100
       },
       "consumes": {
-        "Coin": 1
+        "Simplemeals": 40
       },
       "destruction": {
         "Soldiers": -10

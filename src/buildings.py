@@ -147,33 +147,36 @@ def unpack_resources_dict(packed, building):
     destruction = dict()
 
     for key_p, value_p in packed.items():
-        if key_p == "produces":
-            for key_, value_ in value_p.items():
-                typ = ResourceTypes[key_]
-                produces[typ] = value_
+        try:
+            if key_p == "produces":
+                for key_, value_ in value_p.items():
+                    typ = ResourceTypes[key_]
+                    produces[typ] = value_
 
-        elif key_p == "consumes":
-            for key_, value_ in value_p.items():
-                typ = ResourceTypes[key_]
-                consumes[typ] = value_
+            elif key_p == "consumes":
+                for key_, value_ in value_p.items():
+                    typ = ResourceTypes[key_]
+                    consumes[typ] = value_
 
-        elif key_p == "stores":
-            for key_, value_ in value_p.items():
-                typ = ResourceTypes[key_]
-                stores[typ] = value_
+            elif key_p == "stores":
+                for key_, value_ in value_p.items():
+                    typ = ResourceTypes[key_]
+                    stores[typ] = value_
 
-        elif key_p == "costs":
-            for key_, value_ in value_p.items():
-                typ = ResourceTypes[key_]
-                costs[typ] = value_
+            elif key_p == "costs":
+                for key_, value_ in value_p.items():
+                    typ = ResourceTypes[key_]
+                    costs[typ] = value_
 
-        elif key_p == "destruction":
-            for key_, value_ in value_p.items():
-                typ = ResourceTypes[key_]
-                destruction[typ] = value_
-        else:
-            raise ValueError("produces, consumes, stores, costs, destruction type failed",
-                             key_p, building)
+            elif key_p == "destruction":
+                for key_, value_ in value_p.items():
+                    typ = ResourceTypes[key_]
+                    destruction[typ] = value_
+            else:
+                raise ValueError("produces, consumes, stores, costs, destruction type failed",
+                                 key_p, building)
+        except KeyError as ke:
+            raise KeyError(ke, building, "Couldn't find key", key_p, value_p)
 
     return produces, consumes, stores, costs, destruction
 
