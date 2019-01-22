@@ -1,0 +1,242 @@
+{
+  "Lumber jack": [
+    "Lumberjack",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Logs": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Wood mill": [
+    "Woodmill",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Logs": 10
+      },
+      "produces": {
+        "Wood": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Quarry": [
+    "Quarry",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Stone": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Cow farm": [
+    "Cowfarm",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "stores": {
+        "Cows": 5
+      },
+      "produces": {
+        "Cows": 0.1
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Butcher/Tanner": [
+    "Butcher",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Cows": 1
+        },
+        "produces": {
+          "Leather": 20
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Coal mine": [
+    "Coalmine",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Coal": 20
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Iron mine": [
+    "Ironmine",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Ironore": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Iron smelter": [
+    "Ironsmelter",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Ironore": 10,
+        "Coal": 10
+      },
+      "produces": {
+        "Ironingots": 5
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Gold mine": [
+    "Goldmine",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Goldore": 1
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Gold smelter": [
+    "Goldsmelter",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Goldore": 10,
+        "Coal": 10
+      },
+      "produces": {
+        "Goldingots": 1
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Mint": [
+    "Mint",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Goldingots": 1
+      },
+      "produces": {
+        "Coin": 100
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ]
+}

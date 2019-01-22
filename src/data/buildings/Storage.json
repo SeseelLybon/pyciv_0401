@@ -1,0 +1,75 @@
+{
+  "Small storage": [
+    "Smallstorage",
+    1,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "stores": {
+        "Logs": 1000,
+        "Wood": 1000,
+        "Stone": 1000,
+        "Vegetables": 1000,
+        "Simplemeals": 1000,
+        "Coal": 1000,
+        "Ironore": 1000,
+        "Ironingots": 1000,
+        "Goldore": 1000,
+        "Goldingots": 1000,
+        "Leather": 1000,
+        "Lightweapons": 1000,
+        "Lightarmour": 1000
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Bank": [
+    "Bank",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "stores": {
+          "Coin": 5000
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Barracks": [
+    "Barracks",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "stores": {
+          "Lightsoldiers": 20,
+          "Smallarmy": 1
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ]
+}

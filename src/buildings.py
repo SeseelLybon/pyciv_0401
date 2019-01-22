@@ -5,6 +5,7 @@ from resources import resources_dict
 
 from enum import Enum
 import json
+import os
 
 
 class BuildingTypes(Enum):
@@ -186,13 +187,21 @@ def unpack_resources_dict(packed, building):
 def generate_buildings_dict():
     global BuildingTypes
     bul_dict = dict()
+    data_buildings = "data/buildings/"
+    resources_folder = [f for f in os.listdir(data_buildings) if os.path.isfile(os.path.join(data_buildings, f))]
+    loaded_buildings = dict()
 
-    with open("resources/buildings.json", "r") as r:
-        loaded_buildings = json.load(r)
+    for file in resources_folder:
+        try:
+            with open(data_buildings+file, "r") as r:
+                loaded_buildings.update(json.load(r))
+        except json.decoder.JSONDecodeError as decoerr:
+            raise TypeError(decoerr, data_buildings+file)
 
     buildings = []
     for key, value in loaded_buildings.items():
         buildings.append(value[0])
+
     BuildingTypes = Enum('BuildingTypes', buildings)
 
     for key, value in loaded_buildings.items():

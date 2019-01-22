@@ -3,7 +3,7 @@
 from enum import Enum
 from enum import auto
 import json
-
+import os
 
 class ResourceTypes(Enum):
     pass
@@ -22,9 +22,14 @@ class Resource:
 def generate_resource_dict():
     global ResourceTypes
     res_dict = dict()
+    data_resources = "data/resources/"
+    resources_folder = [f for f in os.listdir(data_resources) if os.path.isfile(os.path.join(data_resources, f))]
 
-    with open("resources/resources.json", "r") as r:
-        loaded_resources = json.load(r)
+    loaded_resources = dict()
+
+    for file in resources_folder:
+        with open(data_resources+file, "r") as r:
+            loaded_resources.update(json.load(r))
 
     resources = []
     for key, value in loaded_resources.items():

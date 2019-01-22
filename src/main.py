@@ -7,10 +7,11 @@ import time
 import button
 import scene
 
+from resources import resources_dict
+
 from buildings import buildings_dict
 from buildings import calc_max
 
-from resources import resources_dict
 
 import World_AI
 

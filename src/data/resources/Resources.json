@@ -1,14 +1,4 @@
 {
-  "~AI_Build_Token": [
-    "AI_Build_Token",
-    0,
-    false
-  ],
-  "~Troubles": [
-    "Troubles",
-    0,
-    true
-  ],
   "Trees": [
     "Trees",
     1000,
@@ -32,16 +22,6 @@
   "People": [
     "People",
     5,
-    true
-  ],
-  "Vegetables": [
-    "Vegetables",
-    0,
-    true
-  ],
-  "Simple meals": [
-    "Simplemeals",
-    0,
     true
   ],
   "Coal": [
@@ -81,26 +61,6 @@
   ],
   "Leather": [
     "Leather",
-    0,
-    true
-  ],
-  "Light weapons": [
-    "Lightweapons",
-    0,
-    true
-  ],
-  "Light armour": [
-    "Lightarmour",
-    0,
-    true
-  ],
-  "Light soldiers": [
-    "Lightsoldiers",
-    0,
-    true
-  ],
-  "Small army": [
-    "Smallarmy",
     0,
     true
   ]

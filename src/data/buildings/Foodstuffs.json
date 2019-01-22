@@ -1,0 +1,45 @@
+{
+  "Forager's hut": [
+    "Foragershut",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Vegetables": 15
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Simple kitchen": [
+    "Simplekitchen",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Vegetables": 15
+      },
+      "produces": {
+        "Simplemeals": 15
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "Light armourer": [
+    "Lightarmourer",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Leather": 3
+        },
+        "produces": {
+          "Lightarmour": 1
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Light blacksmith": [
+    "Lightblacksmith",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Ironingots": 3
+        },
+        "produces": {
+          "Lightweapons": 1
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Draft light soldiers": [
+    "Draftlightsoldiers",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "consumes": {
+          "Lightweapons": 1,
+          "Lightarmour": 1,
+          "People": 1
+        },
+        "produces": {
+          "Lightsoldiers": 1
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
+  ],
+  "Organize small army": [
+    "Organizesmallarmy",
+    0,
+    true,
+    {
+      "costs": {
+        "Lightsoldiers": 20,
+        "Coin": 200
+      },
+      "produces": {
+        "Smallarmy": 1
+      },
+      "destruction": {
+        "Lightsoldiers": 50
+      }
+    }
+  ]
+}

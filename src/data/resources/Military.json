@@ -1,0 +1,22 @@
+{
+   "Light weapons": [
+    "Lightweapons",
+    0,
+    true
+  ],
+  "Light armour": [
+    "Lightarmour",
+    0,
+    true
+  ],
+  "Light soldiers": [
+    "Lightsoldiers",
+    0,
+    true
+  ],
+  "Small army": [
+    "Smallarmy",
+    0,
+    true
+  ]
+}

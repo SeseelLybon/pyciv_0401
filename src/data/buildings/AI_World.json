@@ -1,0 +1,37 @@
+{
+  "~InteralStructure": [
+    "InteralStructure",
+    1,
+    false,
+    {
+      "costs": {
+      },
+      "stores": {
+        "AI_Build_Token": 9999,
+        "Troubles": 9999
+      },
+      "consumes": {
+      },
+      "produces": {
+        "Troubles": 0.3
+      },
+      "destruction": {
+      }
+    }
+  ],
+  "Small bandit camp": [
+    "Smallbanditcamp",
+    0,
+    true,
+    {
+      "costs": {
+        "AI_Build_Token": 1,
+        "Troubles": 100
+      },
+      "destruction": {
+        "Smallarmy": -1,
+        "Coin": 500
+      }
+    }
+  ]
+}

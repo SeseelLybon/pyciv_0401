@@ -36,28 +36,28 @@ def generate_saveable_dicts():
 
 
 def generate_savefile():
-    path = "resources/saves"
+    path = "data/saves/"
     if not os.path.exists(path):
         os.makedirs(path)
 
     try:
-        with open(path+"/savefile.json.tmp", "w") as f:
+        with open(path+"savefile.json.tmp", "w") as f:
             f.write(json.dumps(generate_saveable_dicts(),
                                sort_keys=True, indent=4, separators=(',', ': ')))
     except KeyError as ke:
         print(ke, "Couldn't find key in savefile", "At this time, manually delete")
 
-    if os.path.exists(path+"/savefile.json"):
-        os.remove(path+"/savefile.json")
+    if os.path.exists(path+"savefile.json"):
+        os.remove(path+"savefile.json")
 
-    os.rename(path+"/savefile.json.tmp", path+"/savefile.json")
+    os.rename(path+"savefile.json.tmp", path+"savefile.json")
 
 
 def load_savefile():
     path = "resources/saves"
 
-    if os.path.exists(path+"/savefile.json"):
-        with open(path+"/savefile.json", "r") as f:
+    if os.path.exists(path+"savefile.json"):
+        with open(path+"savefile.json", "r") as f:
             saved_object = json.load(f)
         for key, value in saved_object.items():
             if key == "Buildings":
