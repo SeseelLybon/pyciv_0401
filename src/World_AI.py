@@ -18,7 +18,7 @@ def live():
             resources_dict[ResourceTypes.AI_Build_Token].Amount += 1
             buildings_dict[BuildingTypes.Smallbanditcamp].add_building()
             buildings_dict[BuildingTypes.Smallbanditcamp].isVisible = True
-        if not has_reached_coin and buildings_dict[BuildingTypes.Mint].Amount >= 1:
+        if not has_reached_coin and buildings_dict[BuildingTypes.Coppermint].Amount >= 1:
             has_reached_coin = True
 
     except KeyError as ke:

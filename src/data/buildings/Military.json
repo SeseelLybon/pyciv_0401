@@ -70,21 +70,42 @@
         }
       }
   ],
-  "Organize small army": [
-    "Organizesmallarmy",
+  "Organize light army": [
+    "Organizelightarmy",
     0,
     true,
     {
       "costs": {
         "Lightsoldiers": 20,
-        "Coin": 200
+        "Coppercoins": 200
       },
       "produces": {
-        "Smallarmy": 1
+        "Lightarmy": 1
       },
       "destruction": {
         "Lightsoldiers": 50
       }
     }
+  ],
+  "Barracks": [
+    "Barracks",
+    0,
+    true,
+      {
+        "costs": {
+          "Wood": 100,
+          "Stone": 100,
+          "People": 1
+        },
+        "stores": {
+          "Lightsoldiers": 20,
+          "Lightarmy": 1
+        },
+        "destruction": {
+          "Wood": 50,
+          "Stone": 50,
+          "People": 1
+        }
+      }
   ]
 }

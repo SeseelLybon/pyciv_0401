@@ -172,8 +172,8 @@
       }
     }
   ],
-  "Gold mine": [
-    "Goldmine",
+  "Copper mine": [
+    "Coppermine",
     0,
     true,
     {
@@ -183,7 +183,7 @@
         "People": 1
       },
       "produces": {
-        "Goldore": 1
+        "Copperore": 1
       },
       "destruction": {
         "Wood": 50,
@@ -192,8 +192,8 @@
       }
     }
   ],
-  "Gold smelter": [
-    "Goldsmelter",
+  "Copper smelter": [
+    "Coppersmelter",
     0,
     true,
     {
@@ -203,11 +203,11 @@
         "People": 1
       },
       "consumes": {
-        "Goldore": 10,
+        "Copperore": 10,
         "Coal": 10
       },
       "produces": {
-        "Goldingots": 1
+        "Copperingots": 1
       },
       "destruction": {
         "Wood": 50,
@@ -216,8 +216,8 @@
       }
     }
   ],
-  "Mint": [
-    "Mint",
+  "Ccopper mint": [
+    "Coppermint",
     0,
     true,
     {
@@ -227,10 +227,10 @@
         "People": 1
       },
       "consumes": {
-        "Goldingots": 1
+        "Copperingots": 1
       },
       "produces": {
-        "Coin": 100
+        "Coppercoins": 100
       },
       "destruction": {
         "Wood": 50,

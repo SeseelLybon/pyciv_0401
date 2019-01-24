@@ -29,8 +29,8 @@
         "Troubles": 100
       },
       "destruction": {
-        "Smallarmy": -1,
-        "Coin": 500
+        "Lightarmy": -1,
+        "Coppercoins": 500
       }
     }
   ]
