@@ -13,24 +13,41 @@
       "consumes": {
       },
       "produces": {
-        "Troubles": 0.3
+        "Troubles": 2
       },
       "destruction": {
       }
     }
   ],
-  "Small bandit camp": [
+  "~Bandit spawner": [
     "Smallbanditcamp",
-    0,
+    1,
     true,
     {
       "costs": {
         "AI_Build_Token": 1,
         "Troubles": 100
       },
+      "consumes": {
+        "Troubles": 1
+      },
+      "produces": {
+        "Bandits": 1
+      },
       "destruction": {
-        "Lightarmy": -1,
+        "Militarypower": 100,
         "Coppercoins": 500
+      }
+    }
+  ],
+  "~Combat": [
+    "Combat",
+    0,
+    true,
+    {
+      "consumes": {
+        "Militarypower": 1,
+        "Bandits": -1
       }
     }
   ]

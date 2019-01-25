@@ -8,5 +8,15 @@
     "Troubles",
     0,
     true
+  ],
+  "~Military Power": [
+    "Militarypower",
+    0,
+    true
+  ],
+  "~Bandits": [
+    "Bandits",
+    0,
+    true
   ]
 }

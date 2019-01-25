@@ -77,13 +77,8 @@
     {
       "costs": {
         "Lightsoldiers": 20,
-        "Coppercoins": 200
-      },
-      "produces": {
-        "Lightarmy": 1
-      },
-      "destruction": {
-        "Lightsoldiers": 50
+        "Coppercoins": 200,
+        "Militarypower": -20
       }
     }
   ],
@@ -99,7 +94,7 @@
         },
         "stores": {
           "Lightsoldiers": 20,
-          "Lightarmy": 1
+          "Militarypower": 60
         },
         "destruction": {
           "Wood": 50,
