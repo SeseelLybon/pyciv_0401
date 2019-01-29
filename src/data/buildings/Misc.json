@@ -6,8 +6,7 @@
     {
       "costs": {
         "Wood": 100,
-        "Stone": 100,
-        "People": -4
+        "Stone": 100
       },
       "stores": {
         "People": 5
@@ -16,7 +15,7 @@
         "Simplemeals": 15
       },
       "produces": {
-        "People": 0.01
+        "People": 0.1
       },
       "destruction": {
         "Wood": 50,

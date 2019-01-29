@@ -50,8 +50,7 @@
     true,
     {
       "consumes": {
-        "Militarypower": 1,
-        "Bandits": 1
+        "Militarypower": 1
       },
       "produces": {
         "Void": 1

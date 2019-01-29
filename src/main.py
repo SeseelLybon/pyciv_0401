@@ -65,6 +65,7 @@ while running:
         if event.type == pygame.QUIT:
             generators.generate_savefile()
             running = False
+            print("Quitting game")
             break
 
         if event.type == pygame.KEYDOWN:
