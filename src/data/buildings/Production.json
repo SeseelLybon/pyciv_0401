@@ -128,6 +128,50 @@
       }
     }
   ],
+  "Gold mine": [
+    "Goldmine",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "produces": {
+        "Goldore": 10
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
+  "Gold smelter": [
+    "Goldsmelter",
+    0,
+    true,
+    {
+      "costs": {
+        "Wood": 100,
+        "Stone": 100,
+        "People": 1
+      },
+      "consumes": {
+        "Goldore": 10,
+        "Coal": 10
+      },
+      "produces": {
+        "Goldingots": 5
+      },
+      "destruction": {
+        "Wood": 50,
+        "Stone": 50,
+        "People": 1
+      }
+    }
+  ],
   "Iron mine": [
     "Ironmine",
     0,
@@ -172,28 +216,8 @@
       }
     }
   ],
-  "Copper mine": [
-    "Coppermine",
-    0,
-    true,
-    {
-      "costs": {
-        "Wood": 100,
-        "Stone": 100,
-        "People": 1
-      },
-      "produces": {
-        "Copperore": 1
-      },
-      "destruction": {
-        "Wood": 50,
-        "Stone": 50,
-        "People": 1
-      }
-    }
-  ],
-  "Copper smelter": [
-    "Coppersmelter",
+  "Mint": [
+    "Mint",
     0,
     true,
     {
@@ -203,34 +227,10 @@
         "People": 1
       },
       "consumes": {
-        "Copperore": 10,
-        "Coal": 10
+        "Goldingots": 1
       },
       "produces": {
-        "Copperingots": 1
-      },
-      "destruction": {
-        "Wood": 50,
-        "Stone": 50,
-        "People": 1
-      }
-    }
-  ],
-  "Ccopper mint": [
-    "Coppermint",
-    0,
-    true,
-    {
-      "costs": {
-        "Wood": 100,
-        "Stone": 100,
-        "People": 1
-      },
-      "consumes": {
-        "Copperingots": 1
-      },
-      "produces": {
-        "Coppercoins": 100
+        "Coins": 100
       },
       "destruction": {
         "Wood": 50,

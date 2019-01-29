@@ -8,7 +8,8 @@
       },
       "stores": {
         "AI_Build_Token": 9999,
-        "Troubles": 9999
+        "Troubles": 9999,
+        "Void": 99999999
       },
       "consumes": {
       },
@@ -28,6 +29,9 @@
         "AI_Build_Token": 1,
         "Troubles": 100
       },
+      "stores": {
+        "Bandits": 50
+      },
       "consumes": {
         "Troubles": 1
       },
@@ -36,7 +40,7 @@
       },
       "destruction": {
         "Militarypower": 100,
-        "Coppercoins": 500
+        "Coins": 500
       }
     }
   ],
@@ -47,7 +51,10 @@
     {
       "consumes": {
         "Militarypower": 1,
-        "Bandits": -1
+        "Bandits": 1
+      },
+      "produces": {
+        "Void": 1
       }
     }
   ]

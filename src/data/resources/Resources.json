@@ -29,6 +29,16 @@
     0,
     true
   ],
+  "Gold ore": [
+    "Goldore",
+    0,
+    true
+  ],
+  "Gold ingots": [
+    "Goldingots",
+    0,
+    true
+  ],
   "Iron ore": [
     "Ironore",
     0,
@@ -39,18 +49,8 @@
     0,
     true
   ],
-  "Copper ore": [
-    "Copperore",
-    0,
-    true
-  ],
-  "Copper ingots": [
-    "Copperingots",
-    0,
-    true
-  ],
-  "Copper coins": [
-    "Coppercoins",
+  "Coins": [
+    "Coins",
     0,
     true
   ],

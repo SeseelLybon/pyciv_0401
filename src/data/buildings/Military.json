@@ -77,7 +77,7 @@
     {
       "costs": {
         "Lightsoldiers": 20,
-        "Coppercoins": 200,
+        "Coins": 200,
         "Militarypower": -20
       }
     }

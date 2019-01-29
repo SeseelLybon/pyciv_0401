@@ -18,5 +18,10 @@
     "Bandits",
     0,
     true
+  ],
+  "~Void": [
+    "Void",
+    99999,
+    true
   ]
 }

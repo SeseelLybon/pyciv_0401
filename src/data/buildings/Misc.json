@@ -30,13 +30,13 @@
     true,
     {
       "costs": {
-        "Coppercoins": -100
+        "Coins": -100
       },
       "consumes": {
-        "Coppercoins": 0.1
+        "Coins": 0.1
       },
       "destruction": {
-        "Coppercoins": -100
+        "Coins": -100
       }
     }
   ]
